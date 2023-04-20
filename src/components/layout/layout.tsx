@@ -2,6 +2,7 @@ import React from "react";
 import { Box, useColorMode } from "@chakra-ui/react";
 import { LayoutProps } from "./model";
 import Navbar from "./navbar/navbar";
+import Footer from "./footer/footer";
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -16,7 +17,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     >
       <Navbar />
       {children}
-      <Box w="100%" h="10vh" backgroundColor="hotpink"></Box>
+      <Footer />
     </Box>
   );
 };

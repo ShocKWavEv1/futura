@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import flama from "../../../../public/assets/logo/flama-white.svg";
+import flama from "../../../../public/assets/logo/fvtvra.svg";
 import hamburger from "../../../../public/assets/icons/hamburger-menu.svg";
 import shopping from "../../../../public/assets/icons/shopping-bag-alt.svg";
 
@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
         pointerEvents="all"
         cursor="pointer"
       >
-        <Image priority src={flama} alt="Fvtvra Logo" width={200} />
+        <Image priority src={flama} alt="Fvtvra Logo" width={180} />
       </Box>
       <Box
         w="40px"
