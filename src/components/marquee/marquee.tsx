@@ -4,7 +4,7 @@ import { MarqueeProps } from "./model";
 
 const MarqueeBanner: React.FC<MarqueeProps> = ({ items }) => {
   return (
-    <Box w="100%" p="50px 0rem 0rem 0rem">
+    <Box w="100%" p="50px 0rem 30px 0rem">
       <Marquee direction="left" speed={30} loop={0} gradient={false}>
         {items.map((item: any) => {
           return (

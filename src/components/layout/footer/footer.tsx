@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
           <SlSocialInstagram fontSize="1.45vw" />
         </Box>
         <Box ml="12px" mr="10px" cursor="pointer">
-          <SlSocialYoutube fontSize="1.95vw" />
+          <SlSocialYoutube fontSize="1.88vw" />
         </Box>
         <Box cursor="pointer">
           <TfiVimeo fontSize="1.60vw" />
