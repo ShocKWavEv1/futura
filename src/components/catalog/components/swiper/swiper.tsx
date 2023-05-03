@@ -44,13 +44,25 @@ const SwiperCatalog: React.FC<SwiperProps> = ({ products, currentFilter }) => {
       {products.map((item: any) => {
         return (
           <SwiperSlide key={item.slug}>
-            <Box w="100%" shadow="lg" position="relative">
+            <Box w="100%" shadow="lg" position="relative" cursor="pointer">
               <Image
                 src={renderImage(item.mainImage)}
                 alt={item.title}
-                style={{ width: "100%", height: "auto" }} // layout="responsive" prior to Next 13.0.0
+                placeholder="blur"
+                blurDataURL="https://my-company-images-prd.imgix.net/public/bg-desktop.png?auto=format&blur=200&px=24"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  zIndex: -99999,
+                  position: "relative",
+                  borderRadius: 8,
+                  backgroundColor: "rgba(0,0,0,.6)",
+                }}
                 sizes="(max-width: 800px) 100vw, 800px"
               />
+            </Box>
+            <Box w="100%" h="90vh" position="absolute" bg="red">
+              Hiiii
             </Box>
           </SwiperSlide>
         );

@@ -11,7 +11,7 @@ const CatalogHeader: React.FC<CatalogHeaderProps> = ({
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <Box w="100%" p="3rem 0rem 2rem 0rem">
+    <Box w="100%" p="5rem 0rem 2rem 0rem">
       <Heading as="span" variant="H4BOLD" display="flex">
         <Heading
           onClick={() => setOpen(true)}
@@ -21,6 +21,7 @@ const CatalogHeader: React.FC<CatalogHeaderProps> = ({
           as="span"
           variant="H4BOLD"
           display="flex"
+          borderRadius="8px"
         >
           {currentFilter.title}&nbsp;
           <SlArrowDown />
@@ -29,7 +30,9 @@ const CatalogHeader: React.FC<CatalogHeaderProps> = ({
           <span>en</span>
         </Heading>
       </Heading>
-      <Heading variant="H4BOLD">Nuestro Cátalogo</Heading>
+      <Heading variant="H4BOLD" pt="10px">
+        Nuestro Cátalogo
+      </Heading>
       <Modal
         isOpen={isOpen}
         handleModal={() => setOpen(false)}

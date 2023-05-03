@@ -2,7 +2,6 @@ import { Box, Heading } from "@chakra-ui/react";
 import { ModalProps } from "./model";
 import { motion } from "framer-motion";
 import { TfiClose } from "react-icons/tfi";
-import MarqueeBanner from "../../../marquee/marquee";
 import { filters } from "../../constants";
 
 const Modal: React.FC<ModalProps> = ({
@@ -30,6 +29,7 @@ const Modal: React.FC<ModalProps> = ({
         display: isOpen ? "flex" : "none",
         alignItems: "center",
         justifyContent: "center",
+        overflowY: "hidden",
       }}
     >
       <Box
@@ -60,37 +60,57 @@ const Modal: React.FC<ModalProps> = ({
           <TfiClose fontSize="20px" color="black" />
         </Box>
       </Box>
-      <Box
-        w="50vw"
-        h="auto"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        bg="black"
-        shadow="2xl"
-        p="1rem 2rem"
-        zIndex={3}
-        position="absolute"
+      <motion.div
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{
+          ease: "easeInOut",
+          duration: 0.5,
+        }}
         onClick={(e) => e.stopPropagation()}
+        style={{
+          width: "50vw",
+          backgroundColor: "black",
+          padding: "1rem 2rem",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "absolute",
+          zIndex: 3,
+          overflowY: "scroll",
+        }}
       >
         <Box w="100%" h="100%">
           {filters.map((item: any) => {
             return (
-              <Box
+              <motion.div
                 key={item.title}
-                my="40px"
-                cursor="pointer"
-                onClick={() => {
-                  handleCurrentFilter(item);
-                  handleModal();
+                initial={{ opacity: 0, y: 80 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{
+                  ease: "easeInOut",
+                  duration: 1,
+                  delay: item.delay,
                 }}
               >
-                <Heading variant="H5BOLD">{item.title}</Heading>
-              </Box>
+                <Box
+                  key={item.title}
+                  my="40px"
+                  cursor="pointer"
+                  onClick={() => {
+                    handleCurrentFilter(item);
+                    handleModal();
+                  }}
+                >
+                  <Heading variant="H5BOLD">{item.title}</Heading>
+                </Box>
+              </motion.div>
             );
           })}
         </Box>
-      </Box>
+      </motion.div>
     </motion.div>
   );
 };
