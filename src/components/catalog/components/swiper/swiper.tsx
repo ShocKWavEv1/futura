@@ -2,7 +2,7 @@ import Image from "next/image";
 import { SwiperProps } from "./model";
 
 import { FreeMode, Navigation } from "swiper";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/free-mode";

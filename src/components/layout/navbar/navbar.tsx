@@ -1,12 +1,10 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import flama from "../../../../public/assets/logo/fvtvra.svg";
 import hamburger from "../../../../public/assets/icons/hamburger-menu.svg";
 import shopping from "../../../../public/assets/icons/shopping-bag-alt.svg";
-import { useContext, useState } from "react";
-import ShoppingDrawer from "./shoppingDrawer/shoppingDrawer";
-import NavigationDrawer from "./navigationDrawer/navigationDrawer";
+import { useContext } from "react";
 import { NavbarProps } from "./model";
 import ShoppingCartContext from "@/context/shoppingCartContext";
 import Badge from "./badge/badge";
