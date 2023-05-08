@@ -7,6 +7,11 @@ const Badge: React.FC<BadgeProps> = ({ totalItems }) => {
     <Box
       position="absolute"
       bg="primary.500"
+      w="30px"
+      h="20px"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
       p="1px 5px"
       borderRadius="25em"
       mt="-40px"
