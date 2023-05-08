@@ -55,6 +55,27 @@ const baseH5Styles = {
 const baseH6Styles = {
   fontFamily: 'Futura',
   fontSize: '40px',
+  letterSpacing: -0.85,
+  lineHeight: "42px",
+  textTransform: "uppercase",
+  ...baseThemeMode,
+}
+
+const baseH7Styles = {
+  fontFamily: 'Futura',
+  fontSize: '30px',
+  letterSpacing: -0.85,
+  lineHeight: "42px",
+  textTransform: "uppercase",
+  ...baseThemeMode,
+}
+
+const baseH8Styles = {
+  fontFamily: 'Futura',
+  fontSize: '24px',
+  letterSpacing: -0.85,
+  lineHeight: "42px",
+  textTransform: "uppercase",
   ...baseThemeMode,
 }
 
@@ -154,6 +175,38 @@ const H6BOLD = defineStyle({
   fontWeight: 700,
 })
 
+/* H7 VARIANTS */
+const H7REGULAR = defineStyle({
+  ...baseH7Styles,
+  fontWeight: 300,
+})
+  
+const H7MEDIUM = defineStyle({
+  ...baseH7Styles,
+  fontWeight: 500,
+})
+  
+const H7BOLD = defineStyle({
+  ...baseH7Styles,
+  fontWeight: 700,
+})
+
+/* H8 VARIANTS */
+const H8REGULAR = defineStyle({
+  ...baseH8Styles,
+  fontWeight: 300,
+})
+  
+const H8MEDIUM = defineStyle({
+  ...baseH8Styles,
+  fontWeight: 500,
+})
+  
+const H8BOLD = defineStyle({
+  ...baseH8Styles,
+  fontWeight: 700,
+})
+
 export const HeadingTheme = defineStyleConfig({
   variants: {
     H1REGULAR,
@@ -174,5 +227,11 @@ export const HeadingTheme = defineStyleConfig({
     H6REGULAR,
     H6MEDIUM,
     H6BOLD,
+    H7REGULAR,
+    H7MEDIUM,
+    H7BOLD,
+    H8REGULAR,
+    H8MEDIUM,
+    H8BOLD,
   },
 })

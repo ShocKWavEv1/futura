@@ -15,10 +15,10 @@ const HomeHero: React.FC = () => {
         justifyContent="flex-start"
       >
         <Button
-          onClick={() => router.push("/nosotros")}
           shadow="2xl"
           size="xs"
           colorScheme="primary"
+          onClick={() => router.push("/nosotros")}
         >
           ¿Que contiene?
         </Button>

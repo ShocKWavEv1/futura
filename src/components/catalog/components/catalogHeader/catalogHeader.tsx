@@ -1,6 +1,6 @@
 import Modal from "@/components/catalog/components/modal/modal";
 import { Box, Button, Heading } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SlArrowDown } from "react-icons/sl";
 import { CatalogHeaderProps } from "./model";
 

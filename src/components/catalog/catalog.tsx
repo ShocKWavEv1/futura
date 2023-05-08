@@ -17,7 +17,11 @@ const Catalog: React.FC<CatalogProps> = ({ products }) => {
         handleCurrentFilter={(filter: any) => setFilter(filter)}
       />
       <Box w="100%">
-        <SwiperCatalog products={products} currentFilter={currentFilter} />
+        <SwiperCatalog
+          products={products}
+          currentFilter={currentFilter}
+          handleFilter={(filter: any) => setFilter(filter)}
+        />
       </Box>
     </Box>
   );

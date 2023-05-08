@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import "@/styles/globals.css";
-import { Analytics } from "@vercel/analytics/react";
 
 import Layout from "@/components/layout/layout";
 import { Loader } from "@/components/loader/loader";
@@ -81,7 +80,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
           transition={{ type: "linear" }} // Set the transition to linear
         >
           <Component {...pageProps} />
-          <Analytics />
         </motion.main>
       </Layout>
     </ChakraProvider>
