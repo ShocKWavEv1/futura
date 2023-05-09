@@ -13,7 +13,7 @@ const Reel: React.FC<ReelProps> = ({ isReel, handleReel }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 0.3, delay: 0.5 }}
-            style={{ width: "100%", height: "100%", border: "1px solid white" }}
+            style={{ width: "100%", height: "100%", border: "1px solid black" }}
           >
             <ReactPlayer
               width="100%"

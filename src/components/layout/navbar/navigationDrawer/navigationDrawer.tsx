@@ -53,7 +53,7 @@ const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
             >
               {navigation.map((item: any) => {
                 return (
-                  <Heading key={item.title} variant="H7BOLD" cursor="pointer">
+                  <Heading key={item.title} variant="H8BOLD" cursor="pointer">
                     {item.title}
                   </Heading>
                 );
