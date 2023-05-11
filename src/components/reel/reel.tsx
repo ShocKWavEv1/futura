@@ -2,18 +2,44 @@ import { ReelProps } from "./model";
 import { motion } from "framer-motion";
 import ReactPlayer from "react-player";
 import Backdrop from "../backdrop/backdrop";
-import { Box } from "@chakra-ui/react";
+import { Box, Spinner } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 
 const Reel: React.FC<ReelProps> = ({ isReel, handleReel }) => {
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    if (isReel) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1500);
+    } else {
+      setLoading(false);
+    }
+  }, [isReel]);
+
   return (
     <Backdrop isOpen={isReel} handleBackdrop={() => handleReel()} type="modal">
-      <Box w="70vw" h="40vw">
-        {isReel ? (
+      <Box
+        w="70vw"
+        h="40vw"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        {isReel && !isLoading ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ ease: "easeInOut", duration: 0.3, delay: 0.5 }}
-            style={{ width: "100%", height: "100%", border: "1px solid black" }}
+            transition={{ ease: "easeInOut", duration: 0.3, delay: 0.7 }}
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
           >
             <ReactPlayer
               width="100%"
@@ -24,7 +50,15 @@ const Reel: React.FC<ReelProps> = ({ isReel, handleReel }) => {
               style={{ backgroundColor: "black" }}
             />
           </motion.div>
-        ) : null}
+        ) : (
+          <Spinner
+            thickness="2px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="primary.500"
+            size="xl"
+          />
+        )}
       </Box>
     </Backdrop>
   );

@@ -124,3 +124,32 @@ a {
   width:100%;
   background: linear-gradient(to bottom, rgb(123, 8, 255, 0.9), rgb(123, 8, 255,0.87));
 }
+
+.scroll-section-outer {
+  overflow-x: hidden;
+}
+
+.scroll-section-inner {
+  height: auto;
+  width: 200vw;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.scroll-section {
+  height: auto;
+  width: 33vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-manifesto-title {
+  display: block;
+}
+
+.reel-bg{
+  background: url(../../public/assets/reel.jpg), linear-gradient(#000, #f05);
+  background-size: cover;
+}
