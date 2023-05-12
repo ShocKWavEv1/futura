@@ -12,7 +12,6 @@ const Footer: React.FC = () => {
       alignItems="center"
       justifyContent="center"
       flexDirection="column"
-      bg="red"
     >
       <Box
         w="100%"

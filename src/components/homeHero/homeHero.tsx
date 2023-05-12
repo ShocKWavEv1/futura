@@ -18,7 +18,7 @@ const HomeHero: React.FC = () => {
           shadow="2xl"
           size="xs"
           colorScheme="primary"
-          onClick={() => router.push("/nosotros")}
+          onClick={() => router.push("/compact-movil")}
         >
           ¿Que contiene?
         </Button>

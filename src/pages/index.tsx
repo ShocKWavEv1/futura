@@ -9,7 +9,15 @@ import InGaffer from "@/components/ingaffer/ingaffer";
 import Crew from "@/components/crew/crew";
 import Originals from "@/components/originals/originals";
 
-export default function Home({ products, crew }: { products: any; crew: any }) {
+export default function Home({
+  products,
+  crew,
+  originals,
+}: {
+  products: any;
+  crew: any;
+  originals: any;
+}) {
   const [isReel, showReel] = useState<boolean>(false);
 
   const MarqueeCopies = [
@@ -25,14 +33,14 @@ export default function Home({ products, crew }: { products: any; crew: any }) {
   ];
 
   return (
-    <Box w="100%" h="auto" p="4rem 4rem 0rem 4rem">
+    <Box>
       <HomeHero />
       <VideoLetters handleReel={() => showReel(true)} />
       <MarqueeBanner items={MarqueeCopies} />
       <Catalog products={products} />
       <InGaffer handleReel={() => showReel(true)} />
       <Crew crew={crew} />
-      <Originals />
+      <Originals originals={originals} />
       <Reel isReel={isReel} handleReel={() => showReel(false)} />
     </Box>
   );
@@ -47,18 +55,28 @@ export const getServerSideProps = async (pageContext: any) => {
     `*[ _type == "crew" ] | order(_createdAt asc)`
   );
 
+  const queryOriginals = encodeURIComponent(
+    `*[ _type == "originals" ] | order(_createdAt asc)`
+  );
+
   const url = `https://7fexp3pt.api.sanity.io/v1/data/query/production?query=${query}`;
 
   const urlCrew = `https://7fexp3pt.api.sanity.io/v1/data/query/production?query=${queryCrew}`;
+
+  const urlOriginals = `https://7fexp3pt.api.sanity.io/v1/data/query/production?query=${queryOriginals}`;
 
   const result = await fetch(url).then((res) => res.json());
 
   const resultCrew = await fetch(urlCrew).then((res) => res.json());
 
+  const resultOriginals = await fetch(urlOriginals).then((res) => res.json());
+
   if (!result.result || !result.result.length) {
     return {
       props: {
         products: [],
+        crew: [],
+        originals: [],
       },
     };
   } else {
@@ -66,6 +84,7 @@ export const getServerSideProps = async (pageContext: any) => {
       props: {
         products: result.result,
         crew: resultCrew.result,
+        originals: resultOriginals.result,
       },
     };
   }

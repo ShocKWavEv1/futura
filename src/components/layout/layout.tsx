@@ -92,7 +92,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           handleDrawer={() => setDrawer(true)}
           handleShoppingDrawer={() => setShoppingDrawer(true)}
         />
-        {children}
+        <Box w="100%" h="auto" p="4rem 4rem 0rem 4rem">
+          {children}
+        </Box>
         <Footer />
         {isDrawer && (
           <NavigationDrawer

@@ -1,0 +1,34 @@
+export const contains = [
+    {
+        title: 'Stands',
+        data: ['7  TRIPIES DE CUARZO', '2  COMBOS C/CABEZA', '2  CENTURIES', '2  CENTURIES BABY']
+    },
+    {
+        title: 'ILUMINACIÓN',
+        data: ['1  FRESNEL 2000 W', '1  FRESNEL 1000 W', '2  FRESNELES 650W', '1  FRESNEL 150W', '1  MINIBRUTO 1200W', '1  PIZARRA SOL']
+    },
+    {
+        title: 'BOXES N´BAGS',
+        data: ['16  SANDBAGS', '1  KIT APPLE BOXES', '1  BANCO DE CÁMARA']
+    },
+    {
+        title: 'ELECTRICIDAD',
+        data: ['6  HOLES CLAVIJA 10MTS', '1  HOLE CAIMÁN 5MTS', '1  CAIMÁN C/CAJA DE 40AMP', '1  DIMMER 2000W', '2  DIMMERS 1000W', '2 EXTENSIONES 15MTS']
+    },
+    {
+        title: 'MARCOS',
+        data: ['1  MARCO 8X8 C/OREJAS', '1  MARCO 6X6 COMPACT', '2  MARCOS 4X4 DESARMABLES']
+    },
+    {
+        title: 'TEXTILES',
+        data: ['SEDAS 4X4 ,6X6 ,8X8 ,12X12', 'FRANELAS 4X4 ,6X6 ,8X8 ,12X12', 'ULTRABOUNCE 4X4 , 6X6', 'GRIDCLOTH 1/2 20X20 , 12X12']
+    },
+    {
+        title: 'BANDERAS',
+        data: ['4  FLOPPIES 4X4', '1  BANDERA 18X48 NEGRA', '2  BANDERAS 18X24 NEGRAS', '6  BANDERAS 24X36 NEGRAS', '2  BANDERAS 24X36 SEDA', '2  BANDERAS 24X36 GASA SENC.', '2  BANDERAS 24X36 GASA DOBLE', '2  POROFLEX 4X4']
+    },
+    {
+        title: 'HARDWARE N´GRIP',
+        data: ['10  VARILLAS LARGAS C/YOYO', '6   YOYOS MATTHEWS', '2   ADAPTADORES DE PERNO', '2  PATAS DE GARZA CORTAS', '1  POLECAT', ' 2  BAZOLETAS 1PIN Y 1PERNO', '2  QUACKER CLAMP', '4  PONY CLAMP', '2  CUERDAS 10MTS', '2  STRAPS MATRACA 3 MTS', '1  SOMBRILLA ENTRADA COMBO', '1  CARPA TOLDO 3X3']
+    }
+]

@@ -37,11 +37,8 @@ export const ButtonTheme = defineStyleConfig({
     fontFamily: 'Futura',
     fontWeight: '500',
     border: '2px solid',
-    _hover: {
-        transform: 'scale(1.05)',
-    },
     _active: {
-        transform: 'scale(0.98)'
+        transform: 'scale(0.95)'
     }
   },
   // Styles for the size variations

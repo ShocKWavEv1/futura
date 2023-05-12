@@ -23,22 +23,26 @@ const Backdrop: React.FC<BackdropProps> = ({
         alignItems="center"
         justifyContent="flex-end"
       >
-        <Box
-          w="40px"
-          h="40px"
-          bg="white"
-          border="1px solid white"
-          p="0rem 0.45rem"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
-          pointerEvents="all"
-          cursor="pointer"
-          onClick={() => handleBackdrop()}
+        <motion.div
+          whileHover={{ rotate: "180deg", transition: { duration: 0.4 } }}
         >
-          <TfiClose fontSize="20px" color="black" />
-        </Box>
+          <Box
+            w="40px"
+            h="40px"
+            bg="white"
+            border="1px solid white"
+            p="0rem 0.45rem"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            flexDirection="column"
+            pointerEvents="all"
+            cursor="pointer"
+            onClick={() => handleBackdrop()}
+          >
+            <TfiClose fontSize="20px" color="black" />
+          </Box>
+        </motion.div>
       </Box>
     );
   };
