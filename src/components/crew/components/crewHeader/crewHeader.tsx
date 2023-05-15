@@ -2,7 +2,7 @@ import { Box, Heading } from "@chakra-ui/react";
 
 const CrewHeader: React.FC = () => {
   return (
-    <Box w="100%" p="9rem 0rem 2rem 0rem">
+    <Box id="crew" w="100%" p="9rem 0rem 2rem 0rem">
       <Heading variant="H4BOLD">Fvtvra Crew</Heading>
     </Box>
   );

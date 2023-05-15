@@ -7,6 +7,7 @@ import CrewHeader from "../crewHeader/crewHeader";
 import { CrewScrollProps } from "./model";
 import { useNextSanityImage as sanityImages } from "next-sanity-image";
 import Image from "next/image";
+import { SlSocialInstagram, SlSocialLinkedin } from "react-icons/sl";
 
 const CrewScroll: React.FC<CrewScrollProps> = ({ crew }) => {
   const sectionRef = useRef(null);
@@ -21,7 +22,7 @@ const CrewScroll: React.FC<CrewScrollProps> = ({ crew }) => {
         translateX: 0,
       },
       {
-        translateX: "-72vw",
+        translateX: "-110vw",
         ease: "none",
         duration: 1,
         scrollTrigger: {
@@ -76,6 +77,17 @@ const CrewScroll: React.FC<CrewScrollProps> = ({ crew }) => {
                   <Box w="100%" p="10px" display="flex" flexDirection="column">
                     <Text variant="MDBOLD">{item.name}</Text>
                     <Text variant="SMREGULAR">{item.role}</Text>
+                    <Box
+                      width="100%"
+                      display="flex"
+                      flexDirection="row"
+                      mt="10px"
+                    >
+                      <SlSocialInstagram color="white" fontSize="16px" />
+                      <Box mx="10px">
+                        <SlSocialLinkedin color="white" fontSize="16px" />
+                      </Box>
+                    </Box>
                   </Box>
                 </Box>
               </div>

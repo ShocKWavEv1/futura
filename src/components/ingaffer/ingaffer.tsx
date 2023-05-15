@@ -4,10 +4,13 @@ import InGafferHeader from "./components/ingafferHeader/ingafferHeader";
 import { InGafferHeaderProps } from "./model";
 import { motion } from "framer-motion";
 import { TfiControlPlay } from "react-icons/tfi";
+import { useContext } from "react";
+import ShoppingCartContext from "@/context/shoppingCartContext";
 
-const InGaffer: React.FC<InGafferHeaderProps> = ({ handleReel }) => {
+const InGaffer: React.FC<InGafferHeaderProps> = () => {
+  const { handleReelVideo } = useContext(ShoppingCartContext);
   return (
-    <Box w="100%">
+    <Box id="reel" w="100%">
       <InGafferHeader />
       <Box
         mt="10px"
@@ -40,7 +43,9 @@ const InGaffer: React.FC<InGafferHeaderProps> = ({ handleReel }) => {
               <Text variant="SMREGULAR">Nuestro</Text>
               <Box
                 mx="15px"
-                onClick={() => handleReel()}
+                onClick={() =>
+                  handleReelVideo(true, "https://vimeo.com/703833524")
+                }
                 w="120px"
                 h="120px"
                 color={"black"}

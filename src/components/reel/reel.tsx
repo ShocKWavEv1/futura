@@ -3,10 +3,13 @@ import { motion } from "framer-motion";
 import ReactPlayer from "react-player";
 import Backdrop from "../backdrop/backdrop";
 import { Box, Spinner } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import ShoppingCartContext from "@/context/shoppingCartContext";
 
-const Reel: React.FC<ReelProps> = ({ isReel, handleReel }) => {
+const Reel: React.FC<ReelProps> = () => {
   const [isLoading, setLoading] = useState(true);
+
+  const { isReel, urlVideo, handleReelVideo } = useContext(ShoppingCartContext);
 
   useEffect(() => {
     setLoading(true);
@@ -20,7 +23,11 @@ const Reel: React.FC<ReelProps> = ({ isReel, handleReel }) => {
   }, [isReel]);
 
   return (
-    <Backdrop isOpen={isReel} handleBackdrop={() => handleReel()} type="modal">
+    <Backdrop
+      isOpen={isReel}
+      handleBackdrop={() => handleReelVideo(false, "")}
+      type="modal"
+    >
       <Box
         w="70vw"
         h="40vw"
@@ -44,7 +51,7 @@ const Reel: React.FC<ReelProps> = ({ isReel, handleReel }) => {
             <ReactPlayer
               width="100%"
               height="100%"
-              url="https://vimeo.com/703833524"
+              url={urlVideo}
               controls
               className="react-player"
               style={{ backgroundColor: "black" }}

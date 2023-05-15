@@ -11,7 +11,7 @@ const Catalog: React.FC<CatalogProps> = ({ products }) => {
   const [currentFilter, setFilter] = useState(filters[0]);
 
   return (
-    <Box w="100%">
+    <Box id="catalogo" w="100%">
       <CatalogHeader
         currentFilter={currentFilter}
         handleCurrentFilter={(filter: any) => setFilter(filter)}

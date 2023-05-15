@@ -1,3 +1,3 @@
 export interface OriginalsProps {
-    originals: any
+    originals: any,
 }

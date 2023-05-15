@@ -1,3 +1,1 @@
-export interface InGafferHeaderProps {
-    handleReel: () => void;
-}
+export interface InGafferHeaderProps {}

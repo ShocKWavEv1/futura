@@ -1,10 +1,13 @@
+import ShoppingCartContext from "@/context/shoppingCartContext";
 import { Box, Heading } from "@chakra-ui/react";
+import { useContext } from "react";
 import { VideoLettersProps } from "./model";
 
-const VideoLetters: React.FC<VideoLettersProps> = ({ handleReel }) => {
+const VideoLetters: React.FC<VideoLettersProps> = () => {
+  const { handleReelVideo } = useContext(ShoppingCartContext);
   return (
     <Box
-      onClick={() => handleReel()}
+      onClick={() => handleReelVideo(true, "https://vimeo.com/703833524")}
       className="video-section"
       cursor="pointer"
     >

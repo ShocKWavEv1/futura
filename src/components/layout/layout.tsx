@@ -8,10 +8,13 @@ import ShoppingCartContext from "@/context/shoppingCartContext";
 import { getUser } from "@/constants/constants";
 import NavigationDrawer from "./navbar/navigationDrawer/navigationDrawer";
 import ShoppingDrawer from "./navbar/shoppingDrawer/shoppingDrawer";
+import Reel from "../reel/reel";
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isDrawer, setDrawer] = useState<boolean>(false);
   const [isShoppingDrawer, setShoppingDrawer] = useState<boolean>(false);
+  const [isReel, setReel] = useState<boolean>(false);
+  const [urlVideo, setUrlVideo] = useState<string>("");
   const [user_id, setUserId] = useState<any>();
   const [shoppingCart, setShoppingCart] = useState<any>([]);
   const [hasItems, setHasItems] = useState<any>();
@@ -69,6 +72,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     setHasItems(true);
   };
 
+  const handleReelVideo = (showReel: any, urlVideo: any) => {
+    setReel(showReel);
+    setUrlVideo(urlVideo);
+  };
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -76,9 +84,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         shoppingCart,
         totalCart,
         hasItems,
+        isReel,
+        urlVideo,
         handleShoppingCart,
         handleRemoveItemShoppingCart,
         handleHasItems,
+        handleReelVideo,
       }}
     >
       <Box
@@ -96,6 +107,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           {children}
         </Box>
         <Footer />
+        <Reel />
         {isDrawer && (
           <NavigationDrawer
             isOpen={isDrawer}

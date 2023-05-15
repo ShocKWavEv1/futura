@@ -30,7 +30,7 @@ const Modal: React.FC<ModalProps> = ({
           position: "absolute",
           zIndex: 3,
           overflowY: "scroll",
-          border: "1px solid white",
+          border: "1px solid black",
         }}
       >
         <Box w="100%" h="100%">
@@ -49,11 +49,17 @@ const Modal: React.FC<ModalProps> = ({
               >
                 <Box
                   key={item.title}
-                  my="40px"
                   cursor="pointer"
                   onClick={() => {
                     handleCurrentFilter(item);
                     handleModal();
+                  }}
+                  p="20px 0px"
+                  transition="all .3s ease-in"
+                  _hover={{
+                    bg: "primary.500",
+                    p: "20px 15px",
+                    borderColor: "primary.500",
                   }}
                 >
                   <Heading variant="H6BOLD">{item.title}</Heading>

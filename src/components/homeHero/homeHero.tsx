@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 const HomeHero: React.FC = () => {
   const router = useRouter();
   return (
-    <Box>
+    <Box id="compact">
       <Heading variant="H3BOLD">Compact Movil</Heading>
       <Heading variant="H3BOLD">Grip & electric van</Heading>
       <Box

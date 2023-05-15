@@ -7,6 +7,7 @@ import Image from "next/image";
 import fvtvra_red from "../../../../../public/assets/logo/fvtvra_red.svg";
 import { TfiClose } from "react-icons/tfi";
 import { navigation } from "./constants";
+import Link from "next/link";
 
 const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
   isOpen,
@@ -49,32 +50,53 @@ const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
               display="flex"
               alignItems="center"
               justifyContent="space-between"
-              pl="20px"
+              onClick={(e: any) => e.stopPropagation()}
             >
               {navigation.map((item: any) => {
                 return (
-                  <Heading key={item.title} variant="H8BOLD" cursor="pointer">
-                    {item.title}
-                  </Heading>
+                  <Link
+                    key={item.title}
+                    href={item.path}
+                    onClick={() => handleDrawer()}
+                  >
+                    <Box
+                      w="100%"
+                      p="0px 10px"
+                      transition="all .3s ease-in"
+                      _hover={{
+                        bg: "primary.500",
+                        padding: "0px 10px",
+                        borderColor: "primary.500",
+                      }}
+                    >
+                      <Heading variant="H8BOLD" cursor="pointer">
+                        {item.title}
+                      </Heading>
+                    </Box>
+                  </Link>
                 );
               })}
-              <Box
-                w="40px"
-                h="40px"
-                bg="white"
-                border="1px solid white"
-                p="0rem 0.45rem"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                flexDirection="column"
-                pointerEvents="all"
-                cursor="pointer"
-                position="relative"
-                onClick={() => handleDrawer()}
+              <motion.div
+                whileHover={{ rotate: "180deg", transition: { duration: 0.4 } }}
               >
-                <TfiClose fontSize="20px" color="black" />
-              </Box>
+                <Box
+                  w="40px"
+                  h="40px"
+                  bg="white"
+                  border="1px solid white"
+                  p="0rem 0.45rem"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  flexDirection="column"
+                  pointerEvents="all"
+                  cursor="pointer"
+                  position="relative"
+                  onClick={() => handleDrawer()}
+                >
+                  <TfiClose fontSize="20px" color="black" />
+                </Box>
+              </motion.div>
             </Box>
           </GridItem>
         </Grid>

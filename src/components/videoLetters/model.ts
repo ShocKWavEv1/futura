@@ -1,3 +1,1 @@
-export interface VideoLettersProps {
-    handleReel:() => void;
-}
+export interface VideoLettersProps {}

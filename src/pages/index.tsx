@@ -1,6 +1,4 @@
 import { Box } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import Reel from "@/components/reel/reel";
 import VideoLetters from "@/components/videoLetters/videoLetters";
 import MarqueeBanner from "@/components/marquee/marquee";
 import Catalog from "@/components/catalog/catalog";
@@ -18,8 +16,6 @@ export default function Home({
   crew: any;
   originals: any;
 }) {
-  const [isReel, showReel] = useState<boolean>(false);
-
   const MarqueeCopies = [
     "Renta de equipo fácil",
     "Solo 3 requisitos",
@@ -35,13 +31,12 @@ export default function Home({
   return (
     <Box>
       <HomeHero />
-      <VideoLetters handleReel={() => showReel(true)} />
+      <VideoLetters />
       <MarqueeBanner items={MarqueeCopies} />
       <Catalog products={products} />
-      <InGaffer handleReel={() => showReel(true)} />
+      <InGaffer />
       <Crew crew={crew} />
       <Originals originals={originals} />
-      <Reel isReel={isReel} handleReel={() => showReel(false)} />
     </Box>
   );
 }
