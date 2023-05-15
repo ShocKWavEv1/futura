@@ -3,7 +3,6 @@ import { createClient } from "@sanity/client";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import React, { useEffect, useRef } from "react";
-import CrewHeader from "../crewHeader/crewHeader";
 import { CrewScrollProps } from "./model";
 import { useNextSanityImage as sanityImages } from "next-sanity-image";
 import Image from "next/image";

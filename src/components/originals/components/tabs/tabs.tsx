@@ -1,24 +1,10 @@
 import { Box, Text } from "@chakra-ui/react";
-import { createClient } from "@sanity/client";
-import Image from "next/image";
 import React, { useState } from "react";
 import { TabsOriginalsProps } from "./model";
-import { useNextSanityImage as sanityImages } from "next-sanity-image";
 import ListProjects from "../listProjects/listProjects";
 
 const Tabs: React.FC<TabsOriginalsProps> = ({ originals }) => {
   const [currentTab, setCurrentTab] = useState(originals[0]);
-
-  const configuredSanityClient = createClient({
-    projectId: "7fexp3pt",
-    dataset: "production",
-    useCdn: false,
-  });
-
-  const renderImage = (image: any) => {
-    const imageProps: any = sanityImages(configuredSanityClient, image);
-    return imageProps;
-  };
 
   return (
     <Box w="100%" display="flex" flexDirection="column">

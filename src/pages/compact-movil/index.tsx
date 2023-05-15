@@ -5,12 +5,10 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
-  Button,
   Heading,
   Text,
 } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import { contains } from "./constants";
+import { contains } from "../../constants/compact";
 
 const CompactMovil: React.FC = () => {
   return (
