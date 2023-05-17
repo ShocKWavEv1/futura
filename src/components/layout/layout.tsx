@@ -19,7 +19,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [shoppingCart, setShoppingCart] = useState<any>([]);
   const [hasItems, setHasItems] = useState<any>();
   const [totalCart, setTotalCart] = useState<any>(0);
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   useEffect(() => {
     if (localStorage.getItem("user") === null) {
