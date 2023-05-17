@@ -13,7 +13,12 @@ import { contains } from "../../constants/compact";
 const CompactMovil: React.FC = () => {
   return (
     <Box w="100%">
-      <Heading variant="H3BOLD">1/2 Ton Grip & Electric Van</Heading>
+      <Heading
+        textAlign="center"
+        variant={["H6BOLD", "H5BOLD", "H4BOLD", "H3BOLD"]}
+      >
+        1/2 Ton Grip & Electric Van
+      </Heading>
       <Box
         w="100%"
         mt="3rem"
@@ -29,9 +34,11 @@ const CompactMovil: React.FC = () => {
                 <h2>
                   <AccordionButton p="2rem 0rem">
                     <Box flex="1" textAlign="left">
-                      <Heading variant="H5BOLD">
+                      <Heading
+                        variant={["H7BOLD", "H7BOLD", "H6BOLD", "H6BOLD"]}
+                      >
                         <Text as="span" color="brand.primary" mr="20px">
-                          X
+                          <span style={{ color: "#B53145" }}>X</span>
                         </Text>
                         {item.title}
                       </Heading>
@@ -45,7 +52,7 @@ const CompactMovil: React.FC = () => {
                   {item.data.map((bullet: any) => {
                     return (
                       <Text key={bullet} variant="SMREGULAR" my="20px">
-                        {bullet}
+                        • {bullet}
                       </Text>
                     );
                   })}
