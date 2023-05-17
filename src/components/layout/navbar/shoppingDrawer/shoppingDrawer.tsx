@@ -92,7 +92,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
   const renderCart = () => {
     return (
       <>
-        <Box w={["85vw", "85vw", "55vw", "45vw"]} h="70%" overflowY="scroll">
+        <Box w={["85vw", "85vw", "65vw", "45vw"]} h="70%" overflowY="scroll">
           {shoppingCart.map((item: any) => {
             return (
               <Grid
@@ -228,14 +228,14 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
         }}
       >
         <Box
-          w={["85vw", "85vw", "55vw", "45vw"]}
+          w={["85vw", "85vw", "65vw", "45vw"]}
           h="auto"
           p="20px 25px"
           display="flex"
           flexDirection="row"
           borderBottom="1px solid white"
         >
-          <Text variant={["XSREGULAR", "XSREGULAR", "XSMEDIUM", "XSMEDIUM"]}>
+          <Text variant={["XSREGULAR", "XSREGULAR", "XSMEDIUM", "XSBOLD"]}>
             ESTO NO ES UN CARRITO NADA MÁS ES PARA QUE TE DES UN QUEMÓN 🔥 DE
             CUANTO TE VA A SALIR EL CHISTECITO
           </Text>

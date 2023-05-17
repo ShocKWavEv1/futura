@@ -6,7 +6,7 @@ import { OriginalsProps } from "./model";
 
 const Originals: React.FC<OriginalsProps> = ({ originals }) => {
   return (
-    <Box id="originals" w="100%" pb="3rem">
+    <Box id="originals" w="100%">
       <OriginalsHeader />
       <Box w="100%">
         <Tabs originals={originals} />

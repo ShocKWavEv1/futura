@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
+  Button,
   Heading,
   Text,
 } from "@chakra-ui/react";
@@ -21,11 +22,27 @@ const CompactMovil: React.FC = () => {
       </Heading>
       <Box
         w="100%"
-        mt="3rem"
+        pt="50px"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Button
+          shadow="2xl"
+          size="sm"
+          colorScheme="primary"
+          onClick={() => alert("descarga")}
+        >
+          Descargar lista de equipo
+        </Button>
+      </Box>
+      <Box
+        w="100%"
         display="flex"
         alignItems="center"
         justifyContent="flex-start"
-        p={["0 0rem", "0 2rem", "0 3rem", "0 3rem"]}
+        mt="20px"
+        p={["0 0rem", "0 0rem", "0 0rem", "0 0rem"]}
       >
         <Accordion allowMultiple w="100%">
           {contains.map((item: any) => {

@@ -35,6 +35,13 @@ const baseExtraSmallStyles = {
   ...baseThemeMode,
 }
 
+const baseXXSmallStyles = {
+  fontFamily: 'Futura',
+  fontSize: '12px',
+  wordBreak: 'break-word',
+  ...baseThemeMode,
+}
+
 /* LARGE VARIANTS */
 const LGREGULAR = defineStyle({
     ...baseLargeStyles,
@@ -99,6 +106,22 @@ const XSBOLD = defineStyle({
   fontWeight: 700,
 })
 
+/* XXSMALL */
+const XXSREGULAR = defineStyle({
+  ...baseXXSmallStyles,
+  fontWeight: 300,
+})
+
+const XXSMEDIUM = defineStyle({
+  ...baseXXSmallStyles,
+  fontWeight: 500,
+})
+
+const XXSBOLD = defineStyle({
+  ...baseXXSmallStyles,
+  fontWeight: 700,
+})
+
 export const TextTheme = defineStyleConfig({
   variants: {
     LGREGULAR,
@@ -113,5 +136,8 @@ export const TextTheme = defineStyleConfig({
     XSREGULAR,
     XSMEDIUM,
     XSBOLD,
+    XXSREGULAR,
+    XXSMEDIUM,
+    XXSBOLD,
   },
 })

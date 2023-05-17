@@ -10,11 +10,12 @@ import "swiper/css/free-mode";
 import { useNextSanityImage as sanityImages } from "next-sanity-image";
 import { createClient } from "@sanity/client";
 import { breakpoints, filters } from "../../constants";
-import { Box, useToast } from "@chakra-ui/react";
+import { Badge, Box, Heading, Text, useToast } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import ShoppingCartContext from "@/context/shoppingCartContext";
 import { cartExists } from "@/constants/constants";
 import Toast from "@/components/toast/toast";
+import { formatCurrency } from "@/constants/formatCurrency";
 
 const SwiperCatalog: React.FC<SwiperProps> = ({
   products,
@@ -148,6 +149,39 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
                 }}
                 sizes="(max-width: 800px) 100vw, 800px"
               />
+              <Box
+                w="100%"
+                pt="20px"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                flexDirection="column"
+              >
+                <Heading textAlign="center" variant={"H8BOLD"}>
+                  {item.title}
+                </Heading>
+                <Box
+                  w="100%"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  flexDirection="row"
+                >
+                  <Text pt="10px" variant="MDBOLD" textTransform="uppercase">
+                    {formatCurrency(item.price)}
+                  </Text>
+                  <Box
+                    bg="primary.500"
+                    p="2px"
+                    borderRadius="2px"
+                    m="12px 0px 0px 10px"
+                  >
+                    <Text variant="XXSREGULAR" textTransform="uppercase">
+                      10 horas
+                    </Text>
+                  </Box>
+                </Box>
+              </Box>
             </Box>
           </SwiperSlide>
         );

@@ -28,21 +28,18 @@ const CatalogHeader: React.FC<CatalogHeaderProps> = ({
           borderRadius="8px"
         >
           {currentFilter.title}&nbsp;
-          <Show above="sm">
+          <Show above="md">
             <SlArrowDown />
           </Show>
         </Heading>
-        <Show above="sm">
-          <Heading variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]} pl="5px">
-            <span>en</span>
-          </Heading>
-        </Show>
       </Heading>
       <Heading
         variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]}
         pt={["5px", "10px", "10px", "10px"]}
       >
-        Nuestro Cátalogo
+        {currentFilter.id === 1 || currentFilter.id === 4
+          ? "Disponibles en Fvtvra"
+          : "Disponible en Fvtvra"}
       </Heading>
       <Modal
         isOpen={isOpen}

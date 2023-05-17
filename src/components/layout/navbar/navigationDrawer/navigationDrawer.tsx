@@ -2,7 +2,7 @@ import Backdrop from "@/components/backdrop/backdrop";
 import React from "react";
 import { motion } from "framer-motion";
 import { NavigationDrawerProps } from "./model";
-import { Box, Grid, GridItem, Heading, Show } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Heading, Show, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import fvtvra_red from "../../../../../public/assets/logo/fvtvra_red.svg";
 import { TfiClose } from "react-icons/tfi";
@@ -71,9 +71,13 @@ const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                           borderColor: "primary.500",
                         }}
                       >
-                        <Heading variant="H8BOLD" cursor="pointer">
+                        <Text
+                          variant="MDBOLD"
+                          textTransform="uppercase"
+                          cursor="pointer"
+                        >
                           {item.title}
-                        </Heading>
+                        </Text>
                       </Box>
                     </Link>
                   );

@@ -21,7 +21,7 @@ const ModalPromos: React.FC<ModalPromosProps> = ({ isOpen, handleModal }) => {
         style={{
           width: "auto",
           backgroundColor: "black",
-          padding: "1rem 2rem",
+          padding: "2rem",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -31,8 +31,8 @@ const ModalPromos: React.FC<ModalPromosProps> = ({ isOpen, handleModal }) => {
           border: "1px solid black",
         }}
       >
-        <Box w={["80vw", "80vw", "70vw", "40vw"]} h="100%">
-          <SimpleGrid columns={[1, 1, 1, 1]} spacing="20px">
+        <Box w={["80vw", "80vw", "70vw", "60vw"]} h="100%">
+          <SimpleGrid columns={[2, 2, 2, 2]} spacing="20px">
             {promos.map((item: any) => {
               return (
                 <Box
@@ -43,9 +43,9 @@ const ModalPromos: React.FC<ModalPromosProps> = ({ isOpen, handleModal }) => {
                   borderRadius="8px"
                 >
                   <Heading variant="H6BOLD">
-                    {item.price === ""
+                    {typeof item.price === "string"
                       ? item.price
-                      : formatCurrency(item.price)}
+                      : `${formatCurrency(item.price)} / DÍA`}
                   </Heading>
                   <Text mt="10px" variant="SMREGULAR">
                     <span style={{ color: "#B53145" }}>{item.promo}</span>

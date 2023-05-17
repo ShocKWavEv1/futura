@@ -27,7 +27,7 @@ const CrewScroll: React.FC<CrewScrollProps> = ({ crew }) => {
         scrollTrigger: {
           trigger: triggerRef.current,
           start: "top top",
-          end: "1000 top",
+          end: "2000 top",
           scrub: 0.6,
           pin: true,
         },

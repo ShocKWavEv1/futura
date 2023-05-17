@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { TabsOriginalsProps } from "./model";
 import ListProjects from "../listProjects/listProjects";
@@ -8,10 +8,13 @@ const Tabs: React.FC<TabsOriginalsProps> = ({ originals }) => {
 
   return (
     <Box w="100%" display="flex" flexDirection="column">
+      <Heading variant={["H5BOLD", "H5BOLD", "H5BOLD", "H4BOLD"]}>
+        {currentTab.name}
+      </Heading>
       <Box
         w="100%"
         h="auto"
-        mt="0px"
+        mt="40px"
         display="flex"
         alignItems="flex-start"
         justifyContent="flex-start"
