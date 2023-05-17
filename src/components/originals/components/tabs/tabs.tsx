@@ -8,7 +8,7 @@ const Tabs: React.FC<TabsOriginalsProps> = ({ originals }) => {
 
   return (
     <Box w="100%" display="flex" flexDirection="column">
-      <Heading variant={["H5BOLD", "H5BOLD", "H5BOLD", "H4BOLD"]}>
+      <Heading variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]}>
         {currentTab.name}
       </Heading>
       <Box
