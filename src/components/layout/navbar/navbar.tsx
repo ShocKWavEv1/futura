@@ -20,7 +20,12 @@ const Navbar: React.FC<NavbarProps> = ({
     <Box
       w="100%"
       h="100px"
-      p="4rem 3rem 3rem 3rem"
+      p={[
+        "2rem 2rem 3rem 2rem",
+        "4rem 1.5rem 3rem 1.5rem",
+        "4rem 2rem 3rem 2rem",
+        "4rem 3rem 3rem 3rem",
+      ]}
       display="flex"
       alignItems="center"
       justifyContent="space-between"
@@ -46,11 +51,12 @@ const Navbar: React.FC<NavbarProps> = ({
         <Image priority src={hamburger} alt="shopping" />
       </Box>
       <Box
+        w={["140px", "140px", "160px", "160px"]}
         onClick={() => router.push("/")}
         pointerEvents="all"
         cursor="pointer"
       >
-        <Image priority src={flama} alt="Fvtvra Logo" width={160} />
+        <Image priority src={flama} alt="Fvtvra Logo" />
       </Box>
       <Box
         w="40px"

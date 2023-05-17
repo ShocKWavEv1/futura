@@ -5,8 +5,12 @@ const HomeHero: React.FC = () => {
   const router = useRouter();
   return (
     <Box id="compact">
-      <Heading variant="H3BOLD">Compact Movil</Heading>
-      <Heading variant="H3BOLD">Grip & electric van</Heading>
+      <Heading variant={["H5BOLD", "H4BOLD", "H3BOLD", "H3BOLD"]}>
+        Compact Movil
+      </Heading>
+      <Heading variant={["H5BOLD", "H4BOLD", "H3BOLD", "H3BOLD"]}>
+        Grip & electric van
+      </Heading>
       <Box
         w="100%"
         mt="30px"

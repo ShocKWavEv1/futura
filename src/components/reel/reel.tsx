@@ -59,7 +59,7 @@ const Reel: React.FC<ReelProps> = () => {
           </motion.div>
         ) : (
           <Spinner
-            thickness="2px"
+            thickness="3px"
             speed="0.65s"
             emptyColor="gray.200"
             color="primary.500"

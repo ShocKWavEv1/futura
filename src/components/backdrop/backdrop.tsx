@@ -15,7 +15,7 @@ const Backdrop: React.FC<BackdropProps> = ({
       <Box
         w="100%"
         h="auto"
-        zIndex={3}
+        zIndex={4}
         top="6%"
         p="0rem 3rem"
         position="absolute"

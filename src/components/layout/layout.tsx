@@ -103,7 +103,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           handleDrawer={() => setDrawer(true)}
           handleShoppingDrawer={() => setShoppingDrawer(true)}
         />
-        <Box w="100%" h="auto" p="4rem 4rem 0rem 4rem">
+        <Box
+          w="100%"
+          h="auto"
+          p={[
+            "4rem 2rem 0rem 2rem",
+            "4rem 2rem 0rem 2rem",
+            "4rem 3rem 0rem 3rem",
+            "4rem 4rem 0rem 4rem",
+          ]}
+        >
           {children}
         </Box>
         <Footer />

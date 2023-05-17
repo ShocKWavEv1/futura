@@ -12,25 +12,29 @@ const CatalogHeader: React.FC<CatalogHeaderProps> = ({
 
   return (
     <Box w="100%" p="5rem 0rem 2rem 0rem">
-      <Heading as="span" variant="H4BOLD" display="flex">
+      <Heading
+        as="span"
+        variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]}
+        display="flex"
+      >
         <Heading
           onClick={() => setOpen(true)}
           bg="primary.500"
           p="0rem 1rem"
           cursor="pointer"
           as="span"
-          variant="H4BOLD"
+          variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]}
           display="flex"
           borderRadius="8px"
         >
           {currentFilter.title}&nbsp;
           <SlArrowDown />
         </Heading>
-        <Heading variant="H4BOLD" pl="5px">
+        <Heading variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]} pl="5px">
           <span>en</span>
         </Heading>
       </Heading>
-      <Heading variant="H4BOLD" pt="10px">
+      <Heading variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]} pt="10px">
         Nuestro Cátalogo
       </Heading>
       <Modal

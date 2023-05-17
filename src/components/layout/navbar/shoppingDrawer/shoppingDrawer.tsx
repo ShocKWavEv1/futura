@@ -82,8 +82,8 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
         alignItems="center"
         justifyContent="center"
       >
-        <Heading mt="-80px" variant="H6BOLD">
-          Carrito vacio
+        <Heading mt="-80px" variant={["H7BOLD", "H7BOLD", "H6BOLD", "H6BOLD"]}>
+          Carrito vacío
         </Heading>
       </Box>
     );
@@ -92,7 +92,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
   const renderCart = () => {
     return (
       <>
-        <Box w="100%" h="68%" overflowY="scroll">
+        <Box w={["85vw", "85vw", "55vw", "45vw"]} h="70%" overflowY="scroll">
           {shoppingCart.map((item: any) => {
             return (
               <Grid
@@ -120,13 +120,21 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
                   </Box>
                 </GridItem>
                 <GridItem colSpan={[7, 7, 7, 7]} h="100%">
-                  <Heading variant="H8BOLD" pl="20px">
+                  <Heading variant="H8BOLD" pl="20px" m="0px">
                     {item.title}
                   </Heading>
                 </GridItem>
                 <GridItem colSpan={[2, 2, 2, 2]} h="100%">
                   <Box w="100%" h="50%">
-                    <Text variant="MDREGULAR" textAlign="right">
+                    <Text
+                      variant={[
+                        "XSREGULAR",
+                        "XSREGULAR",
+                        "MDREGULAR",
+                        "MDREGULAR",
+                      ]}
+                      textAlign="right"
+                    >
                       {formatCurrency(item.price)}
                     </Text>
                   </Box>
@@ -154,40 +162,46 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
             );
           })}
         </Box>
-        <Box w="100%" h="22%" borderTop="1px solid white" p="25px">
-          <Box w="100%" display="flex" flexDirection="row">
-            <Box
-              w="100%"
-              display="flex"
-              alignItems="center"
-              justifyContent="flex-start"
-            >
-              <Text variant="MDMEDIUM">Subtotal</Text>
-            </Box>
-            <Box
-              w="100%"
-              display="flex"
-              alignItems="center"
-              justifyContent="flex-end"
-            >
-              <Text variant="MDMEDIUM">{formatCurrency(totalCart)}</Text>
-            </Box>
-          </Box>
+        <Box
+          w="100%"
+          h="20%"
+          borderTop="1px solid white"
+          p={["10px 25px", "10px 25px", "15px 25px", "15px 25px"]}
+        >
           <Box
             w="100%"
             h="100%"
             display="flex"
-            alignItems="flex-start"
-            justifyContent="center"
+            alignItems="center"
+            justifyContent="flex-start"
+            flexDirection="column"
           >
+            <Box w="100%" display="flex" flexDirection="row">
+              <Box
+                w="100%"
+                display="flex"
+                alignItems="center"
+                justifyContent="flex-start"
+              >
+                <Text variant="MDMEDIUM">Subtotal</Text>
+              </Box>
+              <Box
+                w="100%"
+                display="flex"
+                alignItems="center"
+                justifyContent="flex-end"
+              >
+                <Text variant="MDMEDIUM">{formatCurrency(totalCart)}</Text>
+              </Box>
+            </Box>
             <Button
-              mt="18px"
+              mt={["8px", "8px", "15px", "15px"]}
               variant="white"
-              size="sm"
+              size={["xs", "xs", "sm", "sm"]}
               w="100%"
               textTransform="uppercase"
             >
-              Enviar cotizacion
+              Enviar cotización
             </Button>
           </Box>
         </Box>
@@ -204,7 +218,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
       <motion.aside
         onClick={(e) => e.stopPropagation()}
         initial={{ width: 0 }}
-        animate={{ width: "45vw" }}
+        animate={{ width: "auto" }}
         style={{
           backgroundColor: "black",
           position: "absolute",
@@ -214,14 +228,14 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
         }}
       >
         <Box
-          w="100%"
+          w={["85vw", "85vw", "55vw", "45vw"]}
           h="auto"
           p="20px 25px"
           display="flex"
           flexDirection="row"
           borderBottom="1px solid white"
         >
-          <Text variant="XSMEDIUM">
+          <Text variant={["XSREGULAR", "XSREGULAR", "XSMEDIUM", "XSMEDIUM"]}>
             ESTO NO ES UN CARRITO NADA MÁS ES PARA QUE TE DES UN QUEMÓN 🔥 DE
             CUANTO TE VA A SALIR EL CHISTECITO
           </Text>

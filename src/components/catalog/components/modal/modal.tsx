@@ -21,7 +21,7 @@ const Modal: React.FC<ModalProps> = ({
         }}
         onClick={(e) => e.stopPropagation()}
         style={{
-          width: "50vw",
+          width: "auto",
           backgroundColor: "black",
           padding: "1rem 2rem",
           display: "flex",
@@ -33,7 +33,7 @@ const Modal: React.FC<ModalProps> = ({
           border: "1px solid black",
         }}
       >
-        <Box w="100%" h="100%">
+        <Box w={["80vw", "80vw", "70vw", "50vw"]} h="100%">
           {filters.map((item: any) => {
             return (
               <motion.div
@@ -58,11 +58,13 @@ const Modal: React.FC<ModalProps> = ({
                   transition="all .3s ease-in"
                   _hover={{
                     bg: "primary.500",
-                    p: "20px 15px",
+                    p: "20px 10px",
                     borderColor: "primary.500",
                   }}
                 >
-                  <Heading variant="H6BOLD">{item.title}</Heading>
+                  <Heading variant={["H8BOLD", "H7BOLD", "H6BOLD", "H6BOLD"]}>
+                    {item.title}
+                  </Heading>
                 </Box>
               </motion.div>
             );

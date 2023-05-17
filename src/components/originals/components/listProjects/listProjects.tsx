@@ -19,11 +19,11 @@ const ListProjects: React.FC<ListProjectsProps> = ({ listProjects }) => {
       transition="all .3s ease-in"
       _hover={{
         bg: "primary.500",
-        padding: "20px 30px",
+        padding: ["20px 20px", "20px 20px", "20px 30px", "20px 30px"],
         borderColor: "primary.500",
       }}
     >
-      <Heading variant="H7REGULAR">
+      <Heading variant={["H8REGULAR", "H8REGULAR", "H7REGULAR", "H7REGULAR"]}>
         {listProjects.chapter} - {listProjects.description}
       </Heading>
     </Box>

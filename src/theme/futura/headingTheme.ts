@@ -74,7 +74,7 @@ const baseH8Styles = {
   fontFamily: 'Futura',
   fontSize: '24px',
   letterSpacing: -0.85,
-  lineHeight: "42px",
+  lineHeight: "30px",
   textTransform: "uppercase",
   ...baseThemeMode,
 }

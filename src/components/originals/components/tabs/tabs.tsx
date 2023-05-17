@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { TabsOriginalsProps } from "./model";
 import ListProjects from "../listProjects/listProjects";
@@ -10,32 +10,8 @@ const Tabs: React.FC<TabsOriginalsProps> = ({ originals }) => {
     <Box w="100%" display="flex" flexDirection="column">
       <Box
         w="100%"
-        display="flex"
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="flex-start"
-      >
-        {originals.map((item: any) => {
-          return (
-            <Box
-              key={item.name}
-              p="10px"
-              borderBottom={
-                item.name === currentTab.name
-                  ? "2px solid white"
-                  : "0px solid white"
-              }
-              cursor="pointer"
-            >
-              <Text variant="MDREGULAR">{item.name}</Text>
-            </Box>
-          );
-        })}
-      </Box>
-      <Box
-        w="100%"
         h="auto"
-        mt="30px"
+        mt="0px"
         display="flex"
         alignItems="flex-start"
         justifyContent="flex-start"
