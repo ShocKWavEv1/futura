@@ -1,7 +1,10 @@
 import { Box, Button, Heading } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import ModalPromos from "./modalPromos/modalPromos";
 
 const HomeHero: React.FC = () => {
+  const [isOpen, setOpen] = useState<boolean>(false);
   const router = useRouter();
   return (
     <Box id="compact">
@@ -26,10 +29,17 @@ const HomeHero: React.FC = () => {
         >
           ¿Que contiene?
         </Button>
-        <Button ml="15px" shadow="2xl" size="xs" variant="white">
+        <Button
+          ml="15px"
+          shadow="2xl"
+          size="xs"
+          variant="white"
+          onClick={() => setOpen(true)}
+        >
           Promociones
         </Button>
       </Box>
+      <ModalPromos isOpen={isOpen} handleModal={() => setOpen(false)} />
     </Box>
   );
 };

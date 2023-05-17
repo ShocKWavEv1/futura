@@ -107,7 +107,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           w="100%"
           h="auto"
           p={[
-            "4rem 1.5rem 0rem 1.5rem",
+            "2.5rem 1.5rem 0rem 1.5rem",
             "4rem 2rem 0rem 2rem",
             "4rem 3rem 0rem 3rem",
             "4rem 4rem 0rem 4rem",
