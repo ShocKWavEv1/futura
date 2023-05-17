@@ -21,7 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({
       w="100%"
       h="100px"
       p={[
-        "2rem 2rem 3rem 2rem",
+        "2rem 1.5rem 3rem 1.5rem",
         "4rem 1.5rem 3rem 1.5rem",
         "4rem 2rem 3rem 2rem",
         "4rem 3rem 3rem 3rem",
@@ -35,8 +35,8 @@ const Navbar: React.FC<NavbarProps> = ({
       position="relative"
     >
       <Box
-        w="40px"
-        h="40px"
+        w={["35px", "40px", "40px", "40px"]}
+        h={["35px", "40px", "40px", "40px"]}
         bg="white"
         border="1px solid white"
         p="0rem 0.45rem"
@@ -51,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({
         <Image priority src={hamburger} alt="shopping" />
       </Box>
       <Box
-        w={["140px", "140px", "160px", "160px"]}
+        w={["120px", "140px", "160px", "160px"]}
         onClick={() => router.push("/")}
         pointerEvents="all"
         cursor="pointer"
@@ -59,8 +59,8 @@ const Navbar: React.FC<NavbarProps> = ({
         <Image priority src={flama} alt="Fvtvra Logo" />
       </Box>
       <Box
-        w="40px"
-        h="40px"
+        w={["35px", "40px", "40px", "40px"]}
+        h={["35px", "40px", "40px", "40px"]}
         bg="white"
         border="1px solid white"
         p="0rem 0.45rem"

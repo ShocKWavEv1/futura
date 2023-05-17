@@ -22,7 +22,7 @@ const DrawerResponsive: React.FC<DrawerResponsiveProps> = ({
         top: 0,
         width: "100%",
         borderBottom: "1px solid white",
-        padding: "2.6rem 3rem 3rem 3rem",
+        padding: "2.6rem 2rem 2rem 2rem",
       }}
     >
       <Grid w="100%" templateColumns="repeat(12, 2fr)">
@@ -34,7 +34,7 @@ const DrawerResponsive: React.FC<DrawerResponsiveProps> = ({
             alignItems="center"
             justifyContent="flex-start"
           >
-            <Image priority src={fvtvra_red} alt="Fvtvra Logo" width={170} />
+            <Image priority src={fvtvra_red} alt="Fvtvra Logo" width={140} />
           </Box>
         </GridItem>
         <GridItem colSpan={[6, 6, 6, 6]}>
@@ -52,8 +52,8 @@ const DrawerResponsive: React.FC<DrawerResponsiveProps> = ({
               }}
             >
               <Box
-                w="40px"
-                h="40px"
+                w="35px"
+                h="35px"
                 bg="white"
                 border="1px solid white"
                 p="0rem 0.45rem"
@@ -66,7 +66,7 @@ const DrawerResponsive: React.FC<DrawerResponsiveProps> = ({
                 position="relative"
                 onClick={() => handleDrawer()}
               >
-                <TfiClose fontSize="20px" color="black" />
+                <TfiClose fontSize="16px" color="black" />
               </Box>
             </motion.div>
           </Box>
@@ -99,7 +99,8 @@ const DrawerResponsive: React.FC<DrawerResponsiveProps> = ({
                 }}
               >
                 <Heading
-                  variant={["H7BOLD", "H7BOLD", "H6BOLD", "H6BOLD"]}
+                  textAlign="center"
+                  variant={["H8BOLD", "H7BOLD", "H6BOLD", "H6BOLD"]}
                   cursor="pointer"
                 >
                   {item.title}

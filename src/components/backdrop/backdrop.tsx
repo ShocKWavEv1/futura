@@ -27,8 +27,8 @@ const Backdrop: React.FC<BackdropProps> = ({
           whileHover={{ rotate: "180deg", transition: { duration: 0.4 } }}
         >
           <Box
-            w="40px"
-            h="40px"
+            w={["35px", "40px", "40px", "40px"]}
+            h={["35px", "40px", "40px", "40px"]}
             bg="white"
             border="1px solid white"
             p="0rem 0.45rem"

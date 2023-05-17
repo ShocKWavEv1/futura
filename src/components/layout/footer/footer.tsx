@@ -26,12 +26,12 @@ const Footer: React.FC = () => {
           </Text>
         </Box>
         <Box ml="12px" mr="10px" cursor="pointer">
-          <Text variant={["XSMEDIUM", "LGMEDIUM", "LGMEDIUM", "LGMEDIUM"]}>
+          <Text variant={["MDMEDIUM", "LGMEDIUM", "LGMEDIUM", "LGMEDIUM"]}>
             <SlSocialYoutube />
           </Text>
         </Box>
         <Box cursor="pointer">
-          <Text variant={["XSMEDIUM", "LGMEDIUM", "LGMEDIUM", "LGMEDIUM"]}>
+          <Text variant={["MDMEDIUM", "LGMEDIUM", "LGMEDIUM", "LGMEDIUM"]}>
             <TfiVimeo />
           </Text>
         </Box>

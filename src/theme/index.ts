@@ -14,9 +14,9 @@ const config = {
 const colors = getColors({ colors: colorsToken.color })
 
 const breakpoints = {
-  sm: '320px',
-  md: '868px',
-  lg: '1160px',
+  sm: '576px',
+  md: '768px',
+  lg: '1084px',
   xl: '1200px',
   '2xl': '1536px',
 }

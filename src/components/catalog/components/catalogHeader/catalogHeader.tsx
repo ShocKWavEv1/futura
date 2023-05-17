@@ -1,5 +1,5 @@
 import Modal from "@/components/catalog/components/modal/modal";
-import { Box, Button, Heading } from "@chakra-ui/react";
+import { Box, Button, Heading, Show } from "@chakra-ui/react";
 import { useState } from "react";
 import { SlArrowDown } from "react-icons/sl";
 import { CatalogHeaderProps } from "./model";
@@ -28,13 +28,20 @@ const CatalogHeader: React.FC<CatalogHeaderProps> = ({
           borderRadius="8px"
         >
           {currentFilter.title}&nbsp;
-          <SlArrowDown />
+          <Show above="sm">
+            <SlArrowDown />
+          </Show>
         </Heading>
-        <Heading variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]} pl="5px">
-          <span>en</span>
-        </Heading>
+        <Show above="sm">
+          <Heading variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]} pl="5px">
+            <span>en</span>
+          </Heading>
+        </Show>
       </Heading>
-      <Heading variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]} pt="10px">
+      <Heading
+        variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]}
+        pt={["5px", "10px", "10px", "10px"]}
+      >
         Nuestro Cátalogo
       </Heading>
       <Modal

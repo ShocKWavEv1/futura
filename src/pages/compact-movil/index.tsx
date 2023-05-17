@@ -15,7 +15,7 @@ const CompactMovil: React.FC = () => {
     <Box w="100%">
       <Heading
         textAlign="center"
-        variant={["H6BOLD", "H5BOLD", "H4BOLD", "H3BOLD"]}
+        variant={["H6BOLD", "H5BOLD", "H3BOLD", "H3BOLD"]}
       >
         1/2 Ton Grip & Electric Van
       </Heading>
@@ -25,7 +25,7 @@ const CompactMovil: React.FC = () => {
         display="flex"
         alignItems="center"
         justifyContent="flex-start"
-        p="0 3rem"
+        p={["0 0rem", "0 2rem", "0 3rem", "0 3rem"]}
       >
         <Accordion allowMultiple w="100%">
           {contains.map((item: any) => {
@@ -44,7 +44,7 @@ const CompactMovil: React.FC = () => {
                       </Heading>
                     </Box>
                     <AccordionIcon
-                      fontSize={["20px", "30px", "40px", "70px"]}
+                      fontSize={["40px", "40px", "40px", "70px"]}
                     />
                   </AccordionButton>
                 </h2>

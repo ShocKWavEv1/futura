@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Show, Text } from "@chakra-ui/react";
 import InGafferHeader from "./components/ingafferHeader/ingafferHeader";
 import { InGafferHeaderProps } from "./model";
 import { motion } from "framer-motion";
@@ -15,7 +15,7 @@ const InGaffer: React.FC<InGafferHeaderProps> = () => {
       <Box
         mt="10px"
         w="100%"
-        h="40vw"
+        h={["100vw", "40vw", "40vw", "40vw"]}
         borderRadius="8px"
         cursor="pointer"
         position="relative"
@@ -23,7 +23,7 @@ const InGaffer: React.FC<InGafferHeaderProps> = () => {
       >
         <Box
           w="100%"
-          h="40vw"
+          h={["100vw", "40vw", "40vw", "40vw"]}
           position="absolute"
           zIndex={1}
           bg="rgba(0,0,0,.4)"
@@ -40,7 +40,9 @@ const InGaffer: React.FC<InGafferHeaderProps> = () => {
               justifyContent="center"
               flexDirection="row"
             >
-              <Text variant="SMREGULAR">Nuestro</Text>
+              <Show above="sm">
+                <Text variant="SMREGULAR">Nuestro</Text>
+              </Show>
               <Box
                 mx="15px"
                 onClick={() =>
@@ -58,7 +60,9 @@ const InGaffer: React.FC<InGafferHeaderProps> = () => {
               >
                 <TfiControlPlay />
               </Box>
-              <Text variant="SMREGULAR">Reel</Text>
+              <Show above="sm">
+                <Text variant="SMREGULAR">Reel</Text>
+              </Show>
             </Box>
           </motion.div>
         </Box>
