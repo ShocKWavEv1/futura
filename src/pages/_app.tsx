@@ -32,7 +32,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
   };
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 3500);
+    setTimeout(() => setIsLoading(false), 4000);
     // router event listeners for loadingBar
     router.events.on("routeChangeStart", handleRouteStart);
     router.events.on("routeChangeComplete", handleRouteComplete);
@@ -79,7 +79,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
           exit="exit" // Exit state (used later) to variants.exit
           transition={{ type: "linear" }} // Set the transition to linear
         >
-          <Component {...pageProps} />
+          {isLoading === false ? <Component {...pageProps} /> : <></>}
         </motion.main>
       </Layout>
     </ChakraProvider>

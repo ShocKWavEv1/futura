@@ -77,6 +77,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     setUrlVideo(urlVideo);
   };
 
+  const handleShoppingDrawer = () => {
+    setShoppingDrawer(true);
+  };
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -90,6 +94,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         handleRemoveItemShoppingCart,
         handleHasItems,
         handleReelVideo,
+        handleShoppingDrawer,
       }}
     >
       <Box

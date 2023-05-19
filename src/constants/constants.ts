@@ -43,7 +43,9 @@ export const patchUser = (
   user_id: any,
   item: any,
   handleShoppingCart: (item: any) => void,
-  handleToast: () => void
+  handleToast: () => void,
+  handleLoading: (val: boolean) => void,
+  handleShoppingDrawer: () => void,
 ) => {
   const slugArr: any = [];
   const currentArr: any = [];
@@ -52,9 +54,10 @@ export const patchUser = (
     currentArr.push(cart);
   });
   if (slugArr.includes(item.slug.current)) {
-    console.log("already in arr");
+    handleToast();
   } else {
     currentArr.push(item);
+    handleLoading(true);
     const updateUser = async () => {
       const data = {
         user_id: user_id,
@@ -68,15 +71,24 @@ export const patchUser = (
     };
     updateUser().then((data: any) => {
       handleShoppingCart(item);
-      handleToast();
+      handleLoading(false);
+      handleShoppingDrawer();
       return data.message;
     });
     return currentArr;
   }
 };
 
-export const createUser = async (user_id: any, item: any, handleShoppingCart: (item: any) => void, handleToast: () => void, handleHasItems: () => void) => {
+export const createUser = async (
+  user_id: any, 
+  item: any, 
+  handleShoppingCart: (item: any) => void, 
+  handleToast: () => void, 
+  handleHasItems: () => void, 
+  handleLoading: (val: boolean) => void, 
+  handleShoppingDrawer: () => void) => {
   const createNewUser = async () => {
+    handleLoading(true);
     const data = {
       user_id: user_id,
       items: [item],
@@ -90,7 +102,8 @@ export const createUser = async (user_id: any, item: any, handleShoppingCart: (i
   const newUser = createNewUser().then((data: any) => {
     handleHasItems();
     handleShoppingCart(item);
-    handleToast();
+    handleLoading(false);
+    handleShoppingDrawer();
     return data.message;
   });
   return newUser;
@@ -104,10 +117,12 @@ export const cartExists = (
   handleShoppingCart: (item: any) => void,
   handleToast: () => void,
   handleHasItems: () => void,
+  handleLoading: (val: boolean) => void,
+  handleShoppingDrawer: () => void,
 ) => {
   if (hasItems) {
-    patchUser(shoppingCart, user_id, item, handleShoppingCart, handleToast);
+    patchUser(shoppingCart, user_id, item, handleShoppingCart, handleToast, handleLoading, handleShoppingDrawer);
   } else {
-    createUser(user_id, item, handleShoppingCart, handleToast, handleHasItems);
+    createUser(user_id, item, handleShoppingCart, handleToast, handleHasItems, handleLoading, handleShoppingDrawer);
   }
 };

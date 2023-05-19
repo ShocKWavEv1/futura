@@ -18,6 +18,7 @@ import { createClient } from "@sanity/client";
 import { formatCurrency } from "@/constants/formatCurrency";
 import { patchRemove } from "@/constants/constants";
 import Toast from "@/components/toast/toast";
+import PillStepper from "@/components/pillsStepper/pillsStepper";
 
 const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
   isOpen,
@@ -120,9 +121,23 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
                   </Box>
                 </GridItem>
                 <GridItem colSpan={[7, 7, 7, 7]} h="100%">
-                  <Heading variant="H8BOLD" pl="20px" m="0px">
-                    {item.title}
-                  </Heading>
+                  <Box
+                    w="100%"
+                    pl="20px"
+                    display="flex"
+                    alignItems="flex-start"
+                    justifyContent="center"
+                    flexDirection="column"
+                  >
+                    <Heading variant="H8BOLD" m="0px">
+                      {item.title}
+                    </Heading>
+                    <PillStepper
+                      quantity={1}
+                      maxQuantity={30}
+                      handleQuantity={() => console.log("derp")}
+                    />
+                  </Box>
                 </GridItem>
                 <GridItem colSpan={[2, 2, 2, 2]} h="100%">
                   <Box w="100%" h="50%">

@@ -12,6 +12,7 @@ const ShoppingCartContext = React.createContext({
   handleHasItems: () => console.log("HAS ITEMS"),
   handleReelVideo: (showReel: any, urlVideo: any) =>
     console.log("URL REEL", showReel, urlVideo),
+  handleShoppingDrawer: () => console.log("Shopping Drawer"),
 });
 
 export default ShoppingCartContext;

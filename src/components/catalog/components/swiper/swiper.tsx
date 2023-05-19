@@ -10,12 +10,21 @@ import "swiper/css/free-mode";
 import { useNextSanityImage as sanityImages } from "next-sanity-image";
 import { createClient } from "@sanity/client";
 import { breakpoints, filters } from "../../constants";
-import { Badge, Box, Heading, Text, useToast } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Heading,
+  Show,
+  SimpleGrid,
+  Text,
+  useToast,
+} from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import ShoppingCartContext from "@/context/shoppingCartContext";
 import { cartExists } from "@/constants/constants";
 import Toast from "@/components/toast/toast";
 import { formatCurrency } from "@/constants/formatCurrency";
+import { TfiAngleLeft, TfiAngleRight } from "react-icons/tfi";
 
 const SwiperCatalog: React.FC<SwiperProps> = ({
   products,
@@ -24,6 +33,7 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
 }) => {
   const [swiper, setSwiper] = useState<any>(null);
   const [showToast, setShowToast] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState<boolean>(false);
   const [currentItem, setCurrentItem] = useState<any>();
 
   const toast = useToast();
@@ -34,6 +44,7 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
     hasItems,
     handleShoppingCart,
     handleHasItems,
+    handleShoppingDrawer,
   } = useContext(ShoppingCartContext);
 
   useEffect(() => {
@@ -48,11 +59,12 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
       toast({
         render: () => (
           <Toast
-            title={`${currentItem.title} agregado al carrito`}
-            status="success"
+            title={`${currentItem.title} ya en el cotizador`}
+            status="error"
           />
         ),
       });
+      setShowToast(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showToast]);
@@ -90,7 +102,12 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
     setShowToast(true);
   };
 
+  const handleLoading = (val: boolean) => {
+    setLoading(val);
+  };
+
   const handleAddCart = (item: any) => {
+    setShowToast(false);
     const { title, mainImage, slug, price, maxQuantity, maxDays, _id } = item;
     const newItem = {
       title,
@@ -101,7 +118,6 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
       maxDays,
       _key: _id,
     };
-    setShowToast(false);
     setCurrentItem(newItem);
     cartExists(
       shoppingCart,
@@ -110,7 +126,9 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
       hasItems,
       handleShoppingCart,
       handleToast,
-      handleHasItems
+      handleHasItems,
+      handleLoading,
+      handleShoppingDrawer
     );
   };
 
@@ -127,28 +145,33 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
       {products.map((item: any) => {
         return (
           <SwiperSlide key={item.slug}>
-            <Box
-              w="100%"
-              shadow="lg"
-              position="relative"
-              cursor="pointer"
-              onClick={() => handleAddCart(item)}
-            >
-              <Image
-                src={renderImage(item.mainImage)}
-                alt={item.title}
-                placeholder="blur"
-                blurDataURL="https://my-company-images-prd.imgix.net/public/bg-desktop.png?auto=format&blur=200&px=24"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  zIndex: -99999,
-                  position: "relative",
-                  borderRadius: 8,
-                  backgroundColor: "rgba(0,0,0,.6)",
-                }}
-                sizes="(max-width: 800px) 100vw, 800px"
-              />
+            <Box w="100%" shadow="lg" position="relative" cursor="pointer">
+              <Box className="container">
+                <Image
+                  src={renderImage(item.mainImage)}
+                  alt={item.title}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    position: "relative",
+                    borderRadius: 8,
+                  }}
+                  sizes="(max-width: 800px) 100vw, 800px"
+                />
+                <Box className="overlay">
+                  <Button
+                    shadow="2xl"
+                    size="xs"
+                    variant="white"
+                    isLoading={currentItem?.slug === item.slug && isLoading}
+                    loadingText="Añadiendo"
+                    onClick={() => handleAddCart(item)}
+                    mb="30px"
+                  >
+                    Añadir al cotizador
+                  </Button>
+                </Box>
+              </Box>
               <Box
                 w="100%"
                 pt="20px"
@@ -181,11 +204,76 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
                     </Text>
                   </Box>
                 </Box>
+                <Show below="lg">
+                  <Button
+                    shadow="2xl"
+                    size="xs"
+                    variant="white"
+                    mt="20px"
+                    w="100%"
+                    isLoading={currentItem?.slug === item.slug && isLoading}
+                    loadingText="Añadiendo"
+                    onClick={() => handleAddCart(item)}
+                  >
+                    Añadir al cotizador
+                  </Button>
+                </Show>
               </Box>
             </Box>
           </SwiperSlide>
         );
       })}
+      <Box w="100%" mt="20px">
+        <SimpleGrid columns={[2, 2, 2, 2]} spacing="20px">
+          <Box
+            w="auto"
+            display="flex"
+            alignItems="center"
+            justifyContent="flex-start"
+            p="20px 0px"
+          >
+            <Text
+              variant="SMBOLD"
+              cursor="pointer"
+              onClick={() => swiper.slidePrev()}
+              transition="all .3s ease-in"
+              padding="10px"
+              display="flex"
+              _hover={{ bg: "primary.500", padding: "10px 15px" }}
+            >
+              <span style={{ margin: "4.5px 7px 0px 0px" }}>
+                <TfiAngleLeft />
+              </span>
+              Anterior
+            </Text>
+          </Box>
+          <Box
+            w="auto"
+            display="flex"
+            alignItems="center"
+            justifyContent="flex-end"
+            p="10px 0px"
+          >
+            <Text
+              variant="SMBOLD"
+              cursor="pointer"
+              onClick={() => swiper.slideNext()}
+              transition="all .3s ease-in"
+              padding="10px"
+              display="flex"
+              _hover={{
+                bg: "primary.500",
+                padding: "10px 15px",
+              }}
+            >
+              Siguiente
+              <span style={{ margin: "4.5px 0px 0px 7px" }}>
+                <TfiAngleRight />
+              </span>
+            </Text>
+          </Box>
+        </SimpleGrid>
+      </Box>
     </Swiper>
   );
 };
