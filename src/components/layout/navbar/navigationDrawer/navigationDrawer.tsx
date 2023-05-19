@@ -9,11 +9,13 @@ import { TfiClose } from "react-icons/tfi";
 import { navigation } from "./constants";
 import Link from "next/link";
 import DrawerResponsive from "./drawerResponsive/drawerResponsive";
+import { useRouter } from "next/router";
 
 const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
   isOpen,
   handleDrawer,
 }) => {
+  const router = useRouter();
   return (
     <Backdrop
       isOpen={isOpen}
@@ -41,6 +43,8 @@ const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                 display="flex"
                 alignItems="center"
                 justifyContent="flex-start"
+                cursor="pointer"
+                onClick={() => router.push("/")}
               >
                 <Image priority src={fvtvra_red} alt="Fvtvra Logo" />
               </Box>

@@ -1,6 +1,6 @@
-import { Box, Input } from "@chakra-ui/react";
+import { Box, Heading, Input, Text, Tooltip } from "@chakra-ui/react";
 import React from "react";
-import { TfiMinus, TfiPlus } from "react-icons/tfi";
+import { TfiInfo, TfiInfoAlt, TfiMinus, TfiPlus } from "react-icons/tfi";
 import { PillsStepperProps } from "./model";
 
 const PillStepper: React.FC<PillsStepperProps> = ({
@@ -9,47 +9,76 @@ const PillStepper: React.FC<PillsStepperProps> = ({
 }) => {
   return (
     <Box
-      w="auto"
-      border="1px solid white"
-      m="10px"
-      p="5px"
-      borderRadius="25em"
+      w="100%"
       display="flex"
-      flexDirection="row"
+      alignItems="flex-start"
+      justifyContent="center"
+      flexDirection="column"
     >
       <Box
-        w="25px"
-        h="25px"
+        w="auto"
         display="flex"
         alignItems="center"
         justifyContent="center"
-        borderRadius="25em"
-        cursor="pointer"
-        _hover={{ backgroundColor: "hsla(60,14%,95%,.15)" }}
+        flexDirection="row"
       >
-        <TfiMinus fontSize="14px" />
-      </Box>
-      <Box w="40px" h="25px" p="0px 10px">
-        <Input
-          border="none"
-          p="0px"
-          m="0px"
-          h="25px"
-          focusBorderColor="transparent"
-          maxLength={30}
-        />
+        <Tooltip
+          label="La cantidad máxima es de: 12"
+          fontSize="md"
+          bg="white"
+          placement="top"
+        >
+          <Text mt="10px" variant="XSREGULAR" display="flex">
+            Cantidad
+            <TfiInfoAlt fontSize="13px" style={{ margin: "6px 0px 0px 8px" }} />
+          </Text>
+        </Tooltip>
       </Box>
       <Box
-        w="25px"
-        h="25px"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
+        w="auto"
+        border="1px solid white"
+        m="10px"
+        p="5px"
         borderRadius="25em"
-        cursor="pointer"
-        _hover={{ backgroundColor: "hsla(60,14%,95%,.15)" }}
+        display="flex"
+        flexDirection="row"
+        ml="-1px"
       >
-        <TfiPlus fontSize="12px" />
+        <Box
+          w="20px"
+          h="20px"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="25em"
+          cursor="pointer"
+          _hover={{ backgroundColor: "hsla(60,14%,95%,.15)" }}
+        >
+          <TfiMinus fontSize="14px" />
+        </Box>
+        <Box w="40px" h="20px" p="0px 10px" mt="-3px">
+          <Input
+            border="none"
+            p="0px"
+            m="0px"
+            h="20px"
+            focusBorderColor="transparent"
+            value={12}
+            maxLength={30}
+          />
+        </Box>
+        <Box
+          w="20px"
+          h="20px"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="25em"
+          cursor="pointer"
+          _hover={{ backgroundColor: "hsla(60,14%,95%,.15)" }}
+        >
+          <TfiPlus fontSize="12px" />
+        </Box>
       </Box>
     </Box>
   );
