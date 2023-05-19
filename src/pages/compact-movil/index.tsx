@@ -38,7 +38,7 @@ const CompactMovil: React.FC = () => {
             target="_blank"
           >
             <Button shadow="2xl" size="sm" colorScheme="primary">
-              Descargar lista de equipoooo
+              Descargar lista de equipo
             </Button>
           </Link>
         </Box>
