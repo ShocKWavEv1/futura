@@ -93,7 +93,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
   const renderCart = () => {
     return (
       <>
-        <Box w={["85vw", "85vw", "65vw", "45vw"]} h="70%" overflowY="scroll">
+        <Box w={["100vw", "85vw", "65vw", "45vw"]} h="70%" overflowY="scroll">
           {shoppingCart.map((item: any) => {
             return (
               <Grid
@@ -243,7 +243,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
         }}
       >
         <Box
-          w={["85vw", "85vw", "65vw", "45vw"]}
+          w={["100vw", "85vw", "65vw", "45vw"]}
           h="auto"
           p="20px 25px"
           display="flex"
