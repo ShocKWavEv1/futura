@@ -48,6 +48,7 @@ const PillStepper: React.FC<PillsStepperProps> = ({
         handleShoppingDrawer
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quantity]);
 
   const handleLoading = (val: boolean) => {
