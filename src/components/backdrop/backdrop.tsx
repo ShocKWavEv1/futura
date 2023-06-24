@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { BackdropProps } from "./model";
 import { Box } from "@chakra-ui/react";
 import { TfiClose } from "react-icons/tfi";
+import { useScrollLock } from "@/hooks/useScrollLock";
 
 const Backdrop: React.FC<BackdropProps> = ({
   isOpen,
@@ -10,6 +11,17 @@ const Backdrop: React.FC<BackdropProps> = ({
   children,
   type,
 }) => {
+  const { lockScroll, unlockScroll } = useScrollLock();
+
+  useEffect(() => {
+    if (isOpen) {
+      lockScroll();
+    } else {
+      unlockScroll();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
+
   const renderCloseButton = () => {
     return (
       <Box

@@ -38,6 +38,33 @@ export const patchRemove = (
   return newArr;
 };
 
+export const patchCart = (
+  shoppingCart: any,
+  user_id: any,
+  handlePatchShoppingCart: (item: any) => void,
+  handleLoading: (val: boolean) => void,
+  handleShoppingDrawer: () => void,
+) => {
+    const updateUser = async () => {
+      const data = {
+        user_id: user_id,
+        items: shoppingCart,
+      };
+      const response = await fetch("/api/users/updateUser", {
+        method: "PATCH",
+        body: JSON.stringify(data),
+      });
+      return response.json();
+    };
+    updateUser().then((data: any) => {
+      handlePatchShoppingCart(shoppingCart);
+      handleLoading(false);
+      handleShoppingDrawer();
+      return data.message;
+    });
+    return shoppingCart;
+};
+
 export const patchUser = (
   shoppingCart: any,
   user_id: any,

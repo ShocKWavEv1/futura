@@ -117,6 +117,8 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
       maxQuantity,
       maxDays,
       _key: _id,
+      currentQuantity: 1,
+      currentDays: 1,
     };
     setCurrentItem(newItem);
     cartExists(

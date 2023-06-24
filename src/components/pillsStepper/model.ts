@@ -1,5 +1,5 @@
 export interface PillsStepperProps {
-    quantity: any,
+    index: any;
+    currentQuantity: any,
     maxQuantity: any,
-    handleQuantity: () => void,
 }

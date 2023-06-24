@@ -8,6 +8,7 @@ const ShoppingCartContext = React.createContext({
   isReel: false,
   urlVideo: "",
   handleShoppingCart: (item: any) => console.log("PROVIDER", item),
+  handlePatchShoppingCart: (cart: any) => console.log("CART", cart),
   handleRemoveItemShoppingCart: (item: any) => console.log("PROVIDER", item),
   handleHasItems: () => console.log("HAS ITEMS"),
   handleReelVideo: (showReel: any, urlVideo: any) =>

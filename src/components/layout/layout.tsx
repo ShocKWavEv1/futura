@@ -9,6 +9,7 @@ import { getUser } from "@/constants/constants";
 import NavigationDrawer from "./navbar/navigationDrawer/navigationDrawer";
 import ShoppingDrawer from "./navbar/shoppingDrawer/shoppingDrawer";
 import Reel from "../reel/reel";
+import { useScrollLock } from "@/hooks/useScrollLock";
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isDrawer, setDrawer] = useState<boolean>(false);
@@ -20,6 +21,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [hasItems, setHasItems] = useState<any>();
   const [totalCart, setTotalCart] = useState<any>(0);
   const { colorMode } = useColorMode();
+
+  const { lockScroll, unlockScroll } = useScrollLock();
 
   useEffect(() => {
     if (localStorage.getItem("user") === null) {
@@ -46,6 +49,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     setTotalCart(total);
   }, [shoppingCart]);
 
+  useEffect(() => {
+    if (isShoppingDrawer || isDrawer) {
+      lockScroll();
+    } else {
+      unlockScroll();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isShoppingDrawer, isDrawer]);
+
   const getInitialShoppingCart = () => {
     getUser(user_id).then((data: any) => {
       if (data.length !== 0) {
@@ -54,6 +66,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         setHasItems(data[0].has_items);
       }
     });
+  };
+
+  const handlePatchShoppingCart = (cart: any) => {
+    setShoppingCart(cart);
   };
 
   const handleShoppingCart = (item: any) => {
@@ -95,6 +111,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         handleHasItems,
         handleReelVideo,
         handleShoppingDrawer,
+        handlePatchShoppingCart,
       }}
     >
       <Box

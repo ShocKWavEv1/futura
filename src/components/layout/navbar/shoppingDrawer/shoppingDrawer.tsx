@@ -6,6 +6,7 @@ import {
   Grid,
   GridItem,
   Heading,
+  Show,
   Text,
   useToast,
 } from "@chakra-ui/react";
@@ -90,11 +91,13 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
     );
   };
 
+  console.log(shoppingCart);
+
   const renderCart = () => {
     return (
       <>
-        <Box w={["100vw", "85vw", "65vw", "45vw"]} h="70%" overflowY="scroll">
-          {shoppingCart.map((item: any) => {
+        <Box w={["100vw", "85vw", "80vw", "50vw"]} h="70%" overflowY="scroll">
+          {shoppingCart.map((item: any, index: any) => {
             return (
               <Grid
                 key={item.slug.current}
@@ -133,9 +136,9 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
                       {item.title}
                     </Heading>
                     <PillStepper
-                      quantity={1}
-                      maxQuantity={30}
-                      handleQuantity={() => console.log("derp")}
+                      index={index}
+                      currentQuantity={item.currentQuantity}
+                      maxQuantity={item.maxQuantity}
                     />
                   </Box>
                 </GridItem>
@@ -243,17 +246,29 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
         }}
       >
         <Box
-          w={["100vw", "85vw", "65vw", "45vw"]}
+          w={["100vw", "85vw", "80vw", "50vw"]}
           h="auto"
           p="20px 25px"
           display="flex"
           flexDirection="row"
           borderBottom="1px solid white"
         >
-          <Text variant={["XSREGULAR", "XSREGULAR", "XSMEDIUM", "XSBOLD"]}>
-            ESTO NO ES UN CARRITO NADA MÁS ES PARA QUE TE DES UN QUEMÓN 🔥 DE
-            CUANTO TE VA A SALIR EL CHISTECITO
-          </Text>
+          <Show above="md">
+            <Text variant={["XSREGULAR", "XSREGULAR", "XSMEDIUM", "XSBOLD"]}>
+              ESTO NO ES UN CARRITO NADA MÁS ES PARA QUE TE DES UN QUEMÓN 🔥 DE
+              CUANTO TE VA A SALIR EL CHISTECITO
+            </Text>
+          </Show>
+          <Show below="md">
+            <Text
+              variant="MDBOLD"
+              textDecoration="underline"
+              cursor="pointer"
+              onClick={() => handleDrawer()}
+            >
+              Cerrar
+            </Text>
+          </Show>
         </Box>
         {shoppingCart.length === 0 ? renderEmptyCart() : renderCart()}
       </motion.aside>

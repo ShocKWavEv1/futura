@@ -28,7 +28,9 @@ export default defineType({
                     { type: "slug", name: "slug" },
                     { type: "number", name: "price" },
                     { type: "number", name: "maxQuantity" },
+                    { type: "number", name: "currentQuantity" },
                     { type: "number", name: "maxDays" },
+                    { type: "number", name: "currentDays" },
                     { type: "image", name: "mainImage" },
                   ]
                 }

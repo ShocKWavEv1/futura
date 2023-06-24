@@ -21,7 +21,7 @@ const CrewScroll: React.FC<CrewScrollProps> = ({ crew }) => {
         translateX: 0,
       },
       {
-        translateX: "-110vw",
+        translateX: "-400vw",
         ease: "none",
         duration: 1,
         scrollTrigger: {
