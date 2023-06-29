@@ -1,7 +1,6 @@
 import { Box, Button, Heading } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import ModalPromos from "./modalPromos/modalPromos";
 import MotionAnimation from "../motionAnimation/motionAnimation";
 
@@ -11,7 +10,10 @@ const HomeHero: React.FC = () => {
   return (
     <Box id="compact">
       <MotionAnimation delay={0}>
-        <Heading variant={["H5BOLD", "H4BOLD", "H3BOLD", "H3BOLD"]}>
+        <Heading
+          className="derpazoid"
+          variant={["H5BOLD", "H4BOLD", "H3BOLD", "H3BOLD"]}
+        >
           Compact Movil
         </Heading>
       </MotionAnimation>
@@ -32,6 +34,7 @@ const HomeHero: React.FC = () => {
             shadow="2xl"
             size="xs"
             colorScheme="primary"
+            className="view"
             onClick={() => router.push("/compact-movil")}
           >
             ¿Que contiene?

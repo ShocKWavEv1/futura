@@ -54,7 +54,6 @@ const Navbar: React.FC<NavbarProps> = ({
         w={["120px", "140px", "160px", "160px"]}
         onClick={() => router.push("/")}
         pointerEvents="all"
-        cursor="pointer"
       >
         <Image priority src={flama} alt="Fvtvra Logo" />
       </Box>

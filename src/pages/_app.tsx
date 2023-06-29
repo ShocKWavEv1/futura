@@ -13,6 +13,7 @@ import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import LoadingBar from "react-top-loading-bar";
 import { motion } from "framer-motion";
+import Cursor from "@/components/cursor/cursor";
 
 const variants = {
   hidden: { opacity: 0, x: -10, y: 0 },
@@ -70,6 +71,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       <Meta title={"FVTVRA | IN GAFFER WE TRVST"} />
       <LoadingBar ref={LoadingBarRef} height={8} color="#B53145" />
       <Loader onTransitionEnd={handleTransitionEnd} isLoading={isLoading} />
+      <Cursor />
       <Layout>
         <motion.main
           key={router.route}
