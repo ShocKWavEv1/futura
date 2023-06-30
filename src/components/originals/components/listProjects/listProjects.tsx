@@ -25,6 +25,7 @@ const ListProjects: React.FC<ListProjectsProps> = ({ listProjects }) => {
             padding: ["20px 20px", "20px 20px", "20px 30px", "20px 30px"],
             borderColor: "primary.500",
           }}
+          className="link"
         >
           <Heading
             variant={["H8REGULAR", "H8REGULAR", "H7REGULAR", "H7REGULAR"]}

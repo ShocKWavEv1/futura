@@ -51,6 +51,7 @@ const Backdrop: React.FC<BackdropProps> = ({
             pointerEvents="all"
             cursor="pointer"
             onClick={() => handleBackdrop()}
+            className="link"
           >
             <TfiClose fontSize="20px" color="black" />
           </Box>

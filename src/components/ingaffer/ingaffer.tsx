@@ -41,6 +41,7 @@ const InGaffer: React.FC<InGafferHeaderProps> = () => {
                 alignItems="center"
                 justifyContent="center"
                 flexDirection="row"
+                className="link"
               >
                 <Show above="sm">
                   <Text variant="SMREGULAR">Nuestro</Text>

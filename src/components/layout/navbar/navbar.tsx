@@ -47,6 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({
         pointerEvents="all"
         cursor="pointer"
         onClick={() => handleDrawer()}
+        className="link"
       >
         <Image priority src={hamburger} alt="shopping" />
       </Box>
@@ -54,6 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({
         w={["120px", "140px", "160px", "160px"]}
         onClick={() => router.push("/")}
         pointerEvents="all"
+        className="link"
       >
         <Image priority src={flama} alt="Fvtvra Logo" />
       </Box>
@@ -71,6 +73,7 @@ const Navbar: React.FC<NavbarProps> = ({
         cursor="pointer"
         position="relative"
         onClick={() => handleShoppingDrawer()}
+        className="link"
       >
         <Badge totalItems={shoppingCart} />
         <Image priority src={shopping} alt="shopping" />

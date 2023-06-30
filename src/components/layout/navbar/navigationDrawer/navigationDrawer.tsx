@@ -25,7 +25,8 @@ const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
       <Show above="lg">
         <motion.aside
           initial={{ height: 0 }}
-          animate={{ height: "120px" }}
+          animate={{ height: isOpen ? "120px" : 0 }}
+          exit={{ height: 0 }}
           style={{
             backgroundColor: "black",
             position: "absolute",
@@ -45,6 +46,7 @@ const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                 justifyContent="flex-start"
                 cursor="pointer"
                 onClick={() => router.push("/")}
+                className="link"
               >
                 <Image priority src={fvtvra_red} alt="Fvtvra Logo" />
               </Box>
@@ -64,6 +66,7 @@ const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                       key={item.title}
                       href={item.path}
                       onClick={() => handleDrawer()}
+                      className="link"
                     >
                       <Box
                         w="100%"
@@ -106,6 +109,7 @@ const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                     cursor="pointer"
                     position="relative"
                     onClick={() => handleDrawer()}
+                    className="link"
                   >
                     <TfiClose fontSize="20px" color="black" />
                   </Box>

@@ -242,6 +242,7 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
               padding="10px"
               display="flex"
               _hover={{ bg: "primary.500", padding: "10px 15px" }}
+              className="link"
             >
               <span style={{ margin: "4.5px 7px 0px 0px" }}>
                 <TfiAngleLeft />
@@ -267,6 +268,7 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
                 bg: "primary.500",
                 padding: "10px 15px",
               }}
+              className="link"
             >
               Siguiente
               <span style={{ margin: "4.5px 0px 0px 7px" }}>

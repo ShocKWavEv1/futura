@@ -6,6 +6,8 @@ const ShoppingCartContext = React.createContext({
   totalCart: 0,
   hasItems: false,
   isReel: false,
+  isDrawer: false,
+  isShoppingDrawer: false,
   urlVideo: "",
   handleShoppingCart: (item: any) => console.log("PROVIDER", item),
   handlePatchShoppingCart: (cart: any) => console.log("CART", cart),

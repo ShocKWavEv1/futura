@@ -21,24 +21,38 @@ const Footer: React.FC = () => {
         pb="12px"
       >
         <Box cursor="pointer">
-          <Text variant={["XSMEDIUM", "SMMEDIUM", "MDMEDIUM", "MDMEDIUM"]}>
+          <Text
+            variant={["XSMEDIUM", "SMMEDIUM", "MDMEDIUM", "MDMEDIUM"]}
+            className="link"
+          >
             <SlSocialInstagram />
           </Text>
         </Box>
         <Box ml="12px" mr="10px" cursor="pointer">
-          <Text variant={["MDMEDIUM", "LGMEDIUM", "LGMEDIUM", "LGMEDIUM"]}>
+          <Text
+            variant={["MDMEDIUM", "LGMEDIUM", "LGMEDIUM", "LGMEDIUM"]}
+            className="link"
+          >
             <SlSocialYoutube />
           </Text>
         </Box>
         <Box cursor="pointer">
-          <Text variant={["MDMEDIUM", "LGMEDIUM", "LGMEDIUM", "LGMEDIUM"]}>
+          <Text
+            variant={["MDMEDIUM", "LGMEDIUM", "LGMEDIUM", "LGMEDIUM"]}
+            className="link"
+          >
             <TfiVimeo />
           </Text>
         </Box>
       </Box>
       <Text variant={["XSMEDIUM", "XSMEDIUM", "SMMEDIUM", "SMMEDIUM"]}>
         © MMXXII, fvtvra ⦿{" "}
-        <Text as="span" textDecoration="underline" cursor="pointer">
+        <Text
+          as="span"
+          textDecoration="underline"
+          cursor="pointer"
+          className="link"
+        >
           housecolor
         </Text>
       </Text>

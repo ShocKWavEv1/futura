@@ -28,6 +28,7 @@ const CatalogHeader: React.FC<CatalogHeaderProps> = ({
             variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]}
             display="flex"
             borderRadius="8px"
+            className="link"
           >
             {currentFilter.title}&nbsp;
             <Show above="md">

@@ -10,9 +10,12 @@ const ReelsHeader: React.FC = () => {
         <Link
           href="https://www.instagram.com/explore/tags/ingafferwetrvst/"
           target="_blank"
+          className="link"
         >
           <Heading variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]}>
-            <span style={{ color: "#B53145" }}>#INGAFFERWETRVST </span>
+            <span style={{ color: "#B53145", textDecoration: "underline" }}>
+              #INGAFFERWETRVST{" "}
+            </span>
           </Heading>
         </Link>
       </MotionAnimation>

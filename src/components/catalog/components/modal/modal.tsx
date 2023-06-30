@@ -50,6 +50,7 @@ const Modal: React.FC<ModalProps> = ({
                 <Box
                   key={item.title}
                   cursor="pointer"
+                  className="link"
                   onClick={() => {
                     handleCurrentFilter(item);
                     handleModal();

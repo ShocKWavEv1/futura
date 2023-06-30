@@ -105,6 +105,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         totalCart,
         hasItems,
         isReel,
+        isDrawer,
+        isShoppingDrawer,
         urlVideo,
         handleShoppingCart,
         handleRemoveItemShoppingCart,
@@ -139,12 +141,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </Box>
         <Footer />
         <Reel />
-        {isDrawer && (
-          <NavigationDrawer
-            isOpen={isDrawer}
-            handleDrawer={() => setDrawer(false)}
-          />
-        )}
+        <NavigationDrawer
+          isOpen={isDrawer}
+          handleDrawer={() => setDrawer(false)}
+        />
         {isShoppingDrawer && (
           <ShoppingDrawer
             isOpen={isShoppingDrawer}
