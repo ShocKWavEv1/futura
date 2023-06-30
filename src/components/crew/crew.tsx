@@ -7,6 +7,7 @@ import { CrewProps } from "./model";
 const InGaffer: React.FC<CrewProps> = ({ crew }) => {
   return (
     <Box w="100%">
+      <CrewHeader />
       <CrewScroll crew={crew} />
     </Box>
   );

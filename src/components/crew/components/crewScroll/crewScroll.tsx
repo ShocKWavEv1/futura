@@ -7,6 +7,7 @@ import { CrewScrollProps } from "./model";
 import { useNextSanityImage as sanityImages } from "next-sanity-image";
 import Image from "next/image";
 import { SlSocialInstagram, SlSocialLinkedin } from "react-icons/sl";
+import MotionAnimation from "@/components/motionAnimation/motionAnimation";
 
 const CrewScroll: React.FC<CrewScrollProps> = ({ crew }) => {
   const sectionRef = useRef(null);
@@ -21,22 +22,19 @@ const CrewScroll: React.FC<CrewScrollProps> = ({ crew }) => {
         translateX: 0,
       },
       {
-        translateX: "-400vw",
+        translateX: "-133vw",
         ease: "none",
-        duration: 1,
+        duration: 0.5,
         scrollTrigger: {
           trigger: triggerRef.current,
           start: "top top",
-          end: "2000 top",
-          scrub: 0.6,
+          end: "6000 top",
+          scrub: 0.9,
           pin: true,
         },
       }
     );
     return () => {
-      {
-        /* A return function for killing the animation on component unmount */
-      }
       pin.kill();
     };
   }, []);
@@ -56,39 +54,47 @@ const CrewScroll: React.FC<CrewScrollProps> = ({ crew }) => {
     <section className="scroll-section-outer">
       <div ref={triggerRef}>
         <Box ref={sectionRef} className="scroll-section-inner">
-          {crew.map((item: any) => {
+          {crew.map((item: any, i: number) => {
             return (
               <div key={item.title} className="scroll-section">
-                <Box
-                  w="100%"
-                  m="0px 20px"
-                  display="flex"
-                  flexDirection="column"
-                  cursor="pointer"
-                >
-                  <Image
-                    src={renderImage(item.mainImage)}
-                    alt={item.name}
-                    placeholder="blur"
-                    blurDataURL="https://my-company-images-prd.imgix.net/public/bg-desktop.png?auto=format&blur=200&px=24"
-                    sizes="(max-width: 800px) 100vw, 800px"
-                  />
-                  <Box w="100%" p="10px" display="flex" flexDirection="column">
-                    <Text variant="MDBOLD">{item.name}</Text>
-                    <Text variant="SMREGULAR">{item.role}</Text>
+                <MotionAnimation delay={`${i === 0 ? 1 : 1 + `.${i + 2}`}`}>
+                  <Box
+                    w="100%"
+                    m="10px 20px 0px 20px"
+                    display="flex"
+                    flexDirection="column"
+                    cursor="pointer"
+                    className="link"
+                  >
+                    <Image
+                      src={renderImage(item.mainImage)}
+                      alt={item.name}
+                      placeholder="blur"
+                      blurDataURL="https://my-company-images-prd.imgix.net/public/bg-desktop.png?auto=format&blur=200&px=24"
+                      sizes="(max-width: 800px) 100vw, 800px"
+                    />
                     <Box
-                      width="100%"
+                      w="100%"
+                      p="10px"
                       display="flex"
-                      flexDirection="row"
-                      mt="10px"
+                      flexDirection="column"
                     >
-                      <SlSocialInstagram color="white" fontSize="16px" />
-                      <Box mx="10px">
-                        <SlSocialLinkedin color="white" fontSize="16px" />
+                      <Text variant="MDBOLD">{item.name}</Text>
+                      <Text variant="SMREGULAR">{item.role}</Text>
+                      <Box
+                        width="100%"
+                        display="flex"
+                        flexDirection="row"
+                        mt="10px"
+                      >
+                        <SlSocialInstagram color="white" fontSize="16px" />
+                        <Box mx="10px">
+                          <SlSocialLinkedin color="white" fontSize="16px" />
+                        </Box>
                       </Box>
                     </Box>
                   </Box>
-                </Box>
+                </MotionAnimation>
               </div>
             );
           })}

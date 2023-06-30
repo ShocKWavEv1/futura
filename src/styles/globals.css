@@ -25,11 +25,12 @@ body {
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
+  mix-blend-mode: difference;
   padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(181, 49, 69, .7);
+  background-color: white;
 }
 
 .cursor-text {
@@ -123,7 +124,8 @@ a, button, video, image, svg {
   position:relative;
   margin-top: 40px;
   width: 100%;
-  height: 50vh;
+  height: 400px;
+  display: block;
 }
 
 .video-section video {
@@ -208,3 +210,11 @@ a, button, video, image, svg {
 .container:hover .overlay {
   opacity: 1;
 }
+
+
+@media screen and (max-width: 768px) {
+  .video-section {
+    display: none;
+  }
+}
+
