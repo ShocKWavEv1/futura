@@ -25,13 +25,13 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
   isOpen,
   handleDrawer,
 }) => {
+  const { user_id, shoppingCart, totalCart, handleRemoveItemShoppingCart } =
+    useContext(ShoppingCartContext);
+
   const [showToast, setShowToast] = useState<boolean>(false);
   const [currentItem, setCurrentItem] = useState<any>();
 
   const toast = useToast();
-
-  const { user_id, shoppingCart, totalCart, handleRemoveItemShoppingCart } =
-    useContext(ShoppingCartContext);
 
   const configuredSanityClient = createClient({
     projectId: "7fexp3pt",
@@ -91,12 +91,15 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
     );
   };
 
-  console.log(shoppingCart);
-
   const renderCart = () => {
     return (
       <>
-        <Box w={["100vw", "85vw", "80vw", "50vw"]} h="70%" overflowY="scroll">
+        <Box
+          w={["100vw", "85vw", "80vw", "50vw"]}
+          h="70%"
+          data-lenis-prevent
+          overflowY="scroll"
+        >
           {shoppingCart.map((item: any, index: any) => {
             return (
               <Grid

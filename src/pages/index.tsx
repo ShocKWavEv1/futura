@@ -8,6 +8,8 @@ import Crew from "@/components/crew/crew";
 import Originals from "@/components/originals/originals";
 import ReelsIg from "@/components/reelsIg/reelsIg";
 
+import { isMobile } from "react-device-detect";
+import RotateScroll from "@/components/rotateScroll/rotateScroll";
 export default function Home({
   products,
   crew,

@@ -11,6 +11,10 @@ body {
   cursor: none;
 }
 
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
 *::selection {
   background-color: #B53145;
   color: #000000;

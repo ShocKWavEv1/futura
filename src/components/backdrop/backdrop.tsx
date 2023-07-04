@@ -79,7 +79,6 @@ const Backdrop: React.FC<BackdropProps> = ({
         display: isOpen ? "flex" : "none",
         alignItems: "center",
         justifyContent: "center",
-        overflowY: "hidden",
       }}
     >
       {type === "drawer" ? null : renderCloseButton()}

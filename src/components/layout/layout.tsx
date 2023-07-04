@@ -10,6 +10,7 @@ import NavigationDrawer from "./navbar/navigationDrawer/navigationDrawer";
 import ShoppingDrawer from "./navbar/shoppingDrawer/shoppingDrawer";
 import Reel from "../reel/reel";
 import { useScrollLock } from "@/hooks/useScrollLock";
+import { ScrollProvider } from "@/hooks/useLenis";
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isDrawer, setDrawer] = useState<boolean>(false);
@@ -116,42 +117,44 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         handlePatchShoppingCart,
       }}
     >
-      <Box
-        w="100%"
-        h="auto"
-        bg={colorMode === "dark" ? "black" : "secondaryWhite"}
-        position="relative"
-        zIndex={0}
-      >
-        <Navbar
-          handleDrawer={() => setDrawer(true)}
-          handleShoppingDrawer={() => setShoppingDrawer(true)}
-        />
+      <ScrollProvider>
         <Box
           w="100%"
           h="auto"
-          p={[
-            "2.5rem 1.5rem 0rem 1.5rem",
-            "4rem 2rem 0rem 2rem",
-            "4rem 3rem 0rem 3rem",
-            "4rem 4rem 0rem 4rem",
-          ]}
+          bg={colorMode === "dark" ? "black" : "secondaryWhite"}
+          position="relative"
+          zIndex={0}
         >
-          {children}
-        </Box>
-        <Footer />
-        <Reel />
-        <NavigationDrawer
-          isOpen={isDrawer}
-          handleDrawer={() => setDrawer(false)}
-        />
-        {isShoppingDrawer && (
-          <ShoppingDrawer
-            isOpen={isShoppingDrawer}
-            handleDrawer={() => setShoppingDrawer(false)}
+          <Navbar
+            handleDrawer={() => setDrawer(true)}
+            handleShoppingDrawer={() => setShoppingDrawer(true)}
           />
-        )}
-      </Box>
+          <Box
+            w="100%"
+            h="auto"
+            p={[
+              "2.5rem 1.5rem 0rem 1.5rem",
+              "4rem 2rem 0rem 2rem",
+              "4rem 3rem 0rem 3rem",
+              "4rem 4rem 0rem 4rem",
+            ]}
+          >
+            {children}
+          </Box>
+          <Footer />
+          <Reel />
+        </Box>
+      </ScrollProvider>
+      <NavigationDrawer
+        isOpen={isDrawer}
+        handleDrawer={() => setDrawer(false)}
+      />
+      {isShoppingDrawer && (
+        <ShoppingDrawer
+          isOpen={isShoppingDrawer}
+          handleDrawer={() => setShoppingDrawer(false)}
+        />
+      )}
     </ShoppingCartContext.Provider>
   );
 };
