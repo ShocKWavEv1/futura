@@ -179,6 +179,7 @@ a, button, video, image, svg {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0px 20px;
 }
 
 .scroll-manifesto-title {

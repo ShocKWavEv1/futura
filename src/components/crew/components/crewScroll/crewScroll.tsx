@@ -24,11 +24,11 @@ const CrewScroll: React.FC<CrewScrollProps> = ({ crew }) => {
       {
         translateX: "-133vw",
         ease: "none",
-        duration: 0.5,
+        duration: 0.8,
         scrollTrigger: {
           trigger: triggerRef.current,
           start: "top top",
-          end: "6000 top",
+          end: "2000 top",
           scrub: 0.9,
           pin: true,
         },

@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 export const useScrollLock = () => {
   const lockScroll = useCallback(() => {
     document.body.style.overflow = "hidden";
-    document.body.style.height = "100vh";
+    document.body.style.height = "auto";
   }, []);
 
   const unlockScroll = useCallback(() => {
