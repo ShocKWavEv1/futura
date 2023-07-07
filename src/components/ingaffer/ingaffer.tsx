@@ -34,7 +34,7 @@ const InGaffer: React.FC<InGafferHeaderProps> = () => {
             justifyContent="center"
             flexDirection="row"
           >
-            <motion.div whileHover={{ scale: 0.8 }}>
+            <motion.div whileHover={{ scale: 1.2 }}>
               <Box
                 w="100%"
                 display="flex"

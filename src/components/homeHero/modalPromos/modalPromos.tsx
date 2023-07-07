@@ -33,7 +33,7 @@ const ModalPromos: React.FC<ModalPromosProps> = ({ isOpen, handleModal }) => {
       >
         <Box w={["80vw", "80vw", "70vw", "60vw"]} h="100%">
           <SimpleGrid columns={[2, 2, 2, 2]} spacing="20px">
-            {promos.map((item: any) => {
+            {promos.map((item: any, i: number) => {
               return (
                 <Box
                   key={item.price}
@@ -43,9 +43,11 @@ const ModalPromos: React.FC<ModalPromosProps> = ({ isOpen, handleModal }) => {
                   borderRadius="8px"
                 >
                   <Heading variant="H6BOLD">
-                    {typeof item.price === "string"
+                    {i === 4
                       ? item.price
-                      : `${formatCurrency(item.price)} / DÍA`}
+                      : i === 5
+                      ? formatCurrency(item.price)
+                      : `${formatCurrency(item.price)} x DÍA`}
                   </Heading>
                   <Text mt="10px" variant="SMREGULAR">
                     <span style={{ color: "#B53145" }}>{item.promo}</span>

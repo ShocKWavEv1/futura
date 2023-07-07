@@ -33,8 +33,8 @@ const HomeHero: React.FC = () => {
           <Button
             shadow="2xl"
             size="xs"
-            colorScheme="primary"
             className="view"
+            variant="white"
             onClick={() => router.push("/compact-movil")}
           >
             ¿Que contiene?

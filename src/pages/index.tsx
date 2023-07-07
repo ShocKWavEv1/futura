@@ -10,6 +10,7 @@ import ReelsIg from "@/components/reelsIg/reelsIg";
 
 import { isMobile } from "react-device-detect";
 import RotateScroll from "@/components/rotateScroll/rotateScroll";
+import { MarqueeCopies } from "./constants";
 export default function Home({
   products,
   crew,
@@ -19,18 +20,6 @@ export default function Home({
   crew: any;
   originals: any;
 }) {
-  const MarqueeCopies = [
-    "Renta de equipo fácil",
-    "Solo 3 requisitos",
-    "Fvtvra esta de tu lado",
-    "Hacemos sencillo",
-    "Lo que siempre fue complicado",
-    "Tienes toda nuestra atención",
-    "Identificación vigente",
-    "Comprobante domicilio",
-    "Firma responsiva y listo",
-  ];
-
   return (
     <Box>
       <HomeHero />

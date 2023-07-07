@@ -28,15 +28,7 @@ const Footer: React.FC = () => {
             <SlSocialInstagram />
           </Text>
         </Box>
-        <Box ml="12px" mr="10px" cursor="pointer">
-          <Text
-            variant={["MDMEDIUM", "LGMEDIUM", "LGMEDIUM", "LGMEDIUM"]}
-            className="link"
-          >
-            <SlSocialYoutube />
-          </Text>
-        </Box>
-        <Box cursor="pointer">
+        <Box cursor="pointer" ml="10px">
           <Text
             variant={["MDMEDIUM", "LGMEDIUM", "LGMEDIUM", "LGMEDIUM"]}
             className="link"

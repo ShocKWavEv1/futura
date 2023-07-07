@@ -195,12 +195,7 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
                   <Text pt="10px" variant="MDBOLD" textTransform="uppercase">
                     {formatCurrency(item.price)}
                   </Text>
-                  <Box
-                    bg="primary.500"
-                    p="2px"
-                    borderRadius="2px"
-                    m="12px 0px 0px 10px"
-                  >
+                  <Box p="2px" borderRadius="2px" m="12px 0px 0px 10px">
                     <Text variant="XXSREGULAR" textTransform="uppercase">
                       10 horas
                     </Text>
@@ -239,8 +234,9 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
               cursor="pointer"
               onClick={() => swiper.slidePrev()}
               transition="all .3s ease-in"
-              padding="10px"
+              padding="12px"
               display="flex"
+              bg="primary.500"
               _hover={{ bg: "primary.500", padding: "10px 15px" }}
               className="link"
             >
@@ -262,8 +258,9 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
               cursor="pointer"
               onClick={() => swiper.slideNext()}
               transition="all .3s ease-in"
-              padding="10px"
+              padding="12px"
               display="flex"
+              bg="primary.500"
               _hover={{
                 bg: "primary.500",
                 padding: "10px 15px",

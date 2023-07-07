@@ -25,6 +25,11 @@ export default defineType({
         type: 'string',
     }),
     defineField({
+      name: 'social_media',
+      title: 'Social Media',
+      type: 'string',
+  }),
+    defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
