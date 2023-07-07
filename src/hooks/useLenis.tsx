@@ -54,6 +54,7 @@ export const ScrollProvider = ({ children }: { children: ReactNode }) => {
     () => ({
       lenis,
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
