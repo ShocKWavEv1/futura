@@ -8,9 +8,7 @@ import Crew from "@/components/crew/crew";
 import Originals from "@/components/originals/originals";
 import ReelsIg from "@/components/reelsIg/reelsIg";
 
-import { isMobile } from "react-device-detect";
-import RotateScroll from "@/components/rotateScroll/rotateScroll";
-import { MarqueeCopies } from "./constants";
+import { MarqueeCopies } from "../constants/constants";
 export default function Home({
   products,
   crew,
