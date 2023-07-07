@@ -7,8 +7,7 @@ import InGaffer from "@/components/ingaffer/ingaffer";
 import Crew from "@/components/crew/crew";
 import Originals from "@/components/originals/originals";
 import ReelsIg from "@/components/reelsIg/reelsIg";
-
-import { MarqueeCopies } from "../constants/constants";
+import { MarqueeCopies } from "@/constants/marquee";
 export default function Home({
   products,
   crew,
