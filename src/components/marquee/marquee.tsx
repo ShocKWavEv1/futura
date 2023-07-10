@@ -12,12 +12,17 @@ const MarqueeBanner: React.FC<MarqueeProps> = ({ items }) => {
       <Marquee direction="left" speed={30} loop={0} gradient={false}>
         {items.map((item: any) => {
           return (
-            <Box key={item} bg="black" width="auto" p="1rem 2rem">
+            <Box
+              key={item}
+              bg="black"
+              width="auto"
+              p="1rem 2rem"
+              className="link"
+            >
               <Text
                 variant="XSBOLD"
                 textTransform="uppercase"
                 opacity={0.8}
-                className="link"
                 onClick={() => setOpen(true)}
               >
                 {item}
