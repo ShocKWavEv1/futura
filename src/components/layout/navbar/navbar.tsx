@@ -19,7 +19,6 @@ const Navbar: React.FC<NavbarProps> = ({
   const [showCart, setShowCart] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log(router.pathname);
     if (router.pathname === "/resumen") {
       setShowCart(false);
     } else {

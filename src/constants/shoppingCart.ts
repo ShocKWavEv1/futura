@@ -7,7 +7,6 @@ export const getPriceSingleItem = (item: any) => {
 
 export const getTotalPrices = (cart: any) => {
     let sum = 0;
-    console.log(cart)
     cart.forEach((item: any) => {
         const singleItemPrice = item.price * item.currentQuantity
         sum = sum + singleItemPrice
