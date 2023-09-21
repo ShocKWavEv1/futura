@@ -4,26 +4,23 @@ import {
   useEffect,
   useMemo,
   useState,
-  useLayoutEffect,
   useRef,
-  ReactNode,
 } from "react";
 import Lenis from "@studio-freight/lenis";
-import ShoppingCartContext from "@/context/shoppingCartContext";
+import { useRouter } from "next/router";
 
 const ScrollContext = createContext({
   lenis: null,
 });
 
-export const ScrollProvider = ({ children }: { children: ReactNode }) => {
-  const [lenis, setLenis] = useState<any>();
-  const reqIdRef: any = useRef(null);
+export const ScrollProvider = ({ children }) => {
+  const [lenis, setLenis] = useState();
+  const reqIdRef = useRef(null);
 
-  const { isReel, isDrawer, isShoppingDrawer } =
-    useContext(ShoppingCartContext);
+  const router = useRouter();
 
   useEffect(() => {
-    const animate = (time: any) => {
+    const animate = (time) => {
       lenis?.raf(time);
       reqIdRef.current = requestAnimationFrame(animate);
     };
@@ -31,9 +28,9 @@ export const ScrollProvider = ({ children }: { children: ReactNode }) => {
     return () => cancelAnimationFrame(reqIdRef.current);
   }, [lenis]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const lenis = new Lenis({
-      duration: 2.2,
+      duration: 2.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: "vertical",
       gestureDirection: "vertical",
@@ -45,6 +42,7 @@ export const ScrollProvider = ({ children }: { children: ReactNode }) => {
     setLenis(lenis);
 
     return () => {
+      lenis.reset();
       lenis.destroy();
       setLenis(null);
     };

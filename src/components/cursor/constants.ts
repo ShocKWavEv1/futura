@@ -7,8 +7,6 @@ export const customCursor = () => {
     );
     const cursorText: any = document.querySelector("cursor-text");
 
-    console.log(links);
-
     const onMouseMove = (event: any) => {
       const { clientX, clientY } = event;
       gsap.to(cursor, { x: clientX, y: clientY });

@@ -16,10 +16,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShoppingDrawerProps } from "./model";
 import { useNextSanityImage as sanityImages } from "next-sanity-image";
 import { createClient } from "@sanity/client";
-import { formatCurrency } from "@/constants/formatCurrency";
 import { patchRemove } from "@/constants/constants";
 import Toast from "@/components/toast/toast";
 import PillStepper from "@/components/pillsStepper/pillsStepper";
+import { getPriceSingleItem, getTotalPrices } from "@/constants/shoppingCart";
+import { useRouter } from "next/router";
 
 const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
   isOpen,
@@ -30,6 +31,8 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
 
   const [showToast, setShowToast] = useState<boolean>(false);
   const [currentItem, setCurrentItem] = useState<any>();
+
+  const router = useRouter();
 
   const toast = useToast();
 
@@ -156,7 +159,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
                       ]}
                       textAlign="right"
                     >
-                      {formatCurrency(item.price)}
+                      {getPriceSingleItem(item)}
                     </Text>
                   </Box>
                   <Box
@@ -212,7 +215,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
                 alignItems="center"
                 justifyContent="flex-end"
               >
-                <Text variant="MDMEDIUM">{formatCurrency(totalCart)}</Text>
+                <Text variant="MDMEDIUM">{getTotalPrices(shoppingCart)}</Text>
               </Box>
             </Box>
             <Button
@@ -221,8 +224,13 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
               size={["xs", "xs", "sm", "sm"]}
               w="100%"
               textTransform="uppercase"
+              className="link"
+              onClick={() => {
+                handleDrawer();
+                router.push("/resumen");
+              }}
             >
-              Enviar cotización
+              🔥 ¡Lo quiero! 🔥
             </Button>
           </Box>
         </Box>

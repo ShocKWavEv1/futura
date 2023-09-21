@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import flama from "../../../../public/assets/logo/fvtvra.svg";
 import hamburger from "../../../../public/assets/icons/hamburger-menu.svg";
 import shopping from "../../../../public/assets/icons/shopping-bag-alt.svg";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavbarProps } from "./model";
 import ShoppingCartContext from "@/context/shoppingCartContext";
 import Badge from "./badge/badge";
@@ -15,6 +15,17 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const router = useRouter();
   const { shoppingCart } = useContext(ShoppingCartContext);
+
+  const [showCart, setShowCart] = useState<boolean>(false);
+
+  useEffect(() => {
+    console.log(router.pathname);
+    if (router.pathname === "/resumen") {
+      setShowCart(false);
+    } else {
+      setShowCart(true);
+    }
+  }, [router]);
 
   return (
     <Box
@@ -62,21 +73,25 @@ const Navbar: React.FC<NavbarProps> = ({
       <Box
         w={["35px", "40px", "40px", "40px"]}
         h={["35px", "40px", "40px", "40px"]}
-        bg="white"
-        border="1px solid white"
+        bg={showCart ? "white" : "transparent"}
+        border={showCart ? "1px solid white" : "none"}
         p="0rem 0.45rem"
         display="flex"
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
         pointerEvents="all"
-        cursor="pointer"
+        cursor={showCart ? "pointer" : ""}
         position="relative"
-        onClick={() => handleShoppingDrawer()}
-        className="link"
+        onClick={() => (showCart ? handleShoppingDrawer() : null)}
+        className={showCart ? "link" : ""}
       >
-        <Badge totalItems={shoppingCart} />
-        <Image priority src={shopping} alt="shopping" />
+        {showCart && (
+          <>
+            <Badge totalItems={shoppingCart} />
+            <Image priority src={shopping} alt="shopping" />
+          </>
+        )}
       </Box>
     </Box>
   );

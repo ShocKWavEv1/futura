@@ -15,8 +15,7 @@ import LoadingBar from "react-top-loading-bar";
 import { motion } from "framer-motion";
 import Cursor from "@/components/cursor/cursor";
 
-import { isMobile } from "react-device-detect";
-import { ScrollProvider } from "@/hooks/useLenis";
+import { useIsTouchDevice } from "@studio-freight/hamo";
 
 const variants = {
   hidden: { opacity: 0, x: -10, y: 0 },
@@ -26,6 +25,8 @@ const variants = {
 
 export default function App({ Component, pageProps, router }: AppProps) {
   const [isLoading, setIsLoading] = useState(true);
+
+  const isTouchDevice = useIsTouchDevice();
 
   const LoadingBarRef = useRef<any>(null);
 
@@ -74,7 +75,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       <Meta title={"FVTVRA | IN GAFFER WE TRVST"} />
       <LoadingBar ref={LoadingBarRef} height={8} color="#B53145" />
       <Loader onTransitionEnd={handleTransitionEnd} isLoading={isLoading} />
-      <Cursor />
+      {!isTouchDevice ? <Cursor /> : null}
       <Layout>
         <motion.main
           key={router.route}
