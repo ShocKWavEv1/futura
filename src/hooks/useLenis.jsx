@@ -5,6 +5,8 @@ import {
   useMemo,
   useState,
   useRef,
+  ReactNode,
+  useLayoutEffect,
 } from "react";
 import Lenis from "@studio-freight/lenis";
 import { useRouter } from "next/router";
@@ -28,7 +30,7 @@ export const ScrollProvider = ({ children }) => {
     return () => cancelAnimationFrame(reqIdRef.current);
   }, [lenis]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const lenis = new Lenis({
       duration: 2.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
