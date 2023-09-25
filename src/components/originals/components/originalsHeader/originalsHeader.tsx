@@ -1,5 +1,5 @@
 import MotionAnimation from "@/components/motionAnimation/motionAnimation";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Image from "next/image";
 import originals from "../../../../../public/assets/logo/originals.png";
 
