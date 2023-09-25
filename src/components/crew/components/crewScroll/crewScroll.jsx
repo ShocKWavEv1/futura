@@ -3,16 +3,19 @@ import { createClient } from "@sanity/client";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import React, { useEffect, useRef } from "react";
-import { CrewScrollProps } from "./model";
 import { useNextSanityImage as sanityImages } from "next-sanity-image";
 import Image from "next/image";
 import { SlSocialInstagram } from "react-icons/sl";
 import MotionAnimation from "@/components/motionAnimation/motionAnimation";
 import Link from "next/link";
+import { useWindowSize } from "@studio-freight/hamo";
+import { getCrewScroll } from "@/constants/getCrewScroll";
 
-const CrewScroll: React.FC<CrewScrollProps> = ({ crew }) => {
+const CrewScroll = ({ crew }) => {
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
+
+  const { width } = useWindowSize();
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -23,22 +26,22 @@ const CrewScroll: React.FC<CrewScrollProps> = ({ crew }) => {
         translateX: 0,
       },
       {
-        translateX: "-100vw",
+        translateX: getCrewScroll(width),
         ease: "none",
-        duration: 0.8,
         scrollTrigger: {
           trigger: triggerRef.current,
-          start: "top top",
-          end: "1600 top",
-          scrub: 0.9,
+          start: "center center",
+          end: "2000px bottom",
+          scrub: true,
           pin: true,
+          anticipatePin: 1,
         },
       }
     );
     return () => {
       pin.kill();
     };
-  }, []);
+  }, [width]);
 
   const configuredSanityClient = createClient({
     projectId: "7fexp3pt",
@@ -46,19 +49,27 @@ const CrewScroll: React.FC<CrewScrollProps> = ({ crew }) => {
     useCdn: false,
   });
 
-  const renderImage = (image: any) => {
-    const imageProps: any = sanityImages(configuredSanityClient, image);
+  const renderImage = (image) => {
+    const imageProps = sanityImages(configuredSanityClient, image);
     return imageProps;
   };
 
   return (
     <section className="scroll-section-outer">
       <div ref={triggerRef}>
-        <Box ref={sectionRef} className="scroll-section-inner">
-          {crew.map((item: any, i: number) => {
+        <Box
+          ref={sectionRef}
+          w={["400vw", "320vw", "250vw", "200vw", "200vw"]}
+          className="scroll-section-inner"
+        >
+          {crew.map((item, i) => {
             return (
-              <div key={item.title} className="scroll-section">
-                <MotionAnimation delay={`${i === 0 ? 1 : 1 + `.${i + 2}`}`}>
+              <Box
+                key={item.title}
+                w={["100vw", "80vw", "50vw", "33vw", "33vw"]}
+                className="scroll-section"
+              >
+                <MotionAnimation delay={0}>
                   <Box
                     w="100%"
                     m="10px 20px 0px 20px"
@@ -95,7 +106,7 @@ const CrewScroll: React.FC<CrewScrollProps> = ({ crew }) => {
                     </Link>
                   </Box>
                 </MotionAnimation>
-              </div>
+              </Box>
             );
           })}
         </Box>

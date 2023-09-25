@@ -167,7 +167,6 @@ a, button, video, image, svg {
 
 .scroll-section-inner {
   height: auto;
-  width: 200vw;
   display: flex;
   flex-direction: row;
   position: relative;
@@ -175,7 +174,6 @@ a, button, video, image, svg {
 
 .scroll-section {
   height: auto;
-  width: 33vw;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/hooks/useLenis.tsx", "src/pages/resumen/index.jsx", "src/pages/resumen/index.jsx", "src/pages/resumen/index.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/hooks/useLenis.tsx", "src/pages/resumen/index.tsx", "src/pages/resumen/index.tsx", "src/pages/resumen/index.tsx", "src/components/catalog/components/swiper/swiper.jsx", "src/components/blurredImage/blurredImage.jsx", "src/components/crew/components/crewScroll/crewScroll.jsx"],
   "exclude": ["node_modules"]
 }
