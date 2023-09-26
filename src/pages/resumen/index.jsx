@@ -138,7 +138,7 @@ const Resumen = () => {
                   />
                 </Box>
                 <Box w="auto" pl="20px">
-                  <Heading variant="H8BOLD">{item.title}</Heading>
+                  <Heading variant={["H9BOLD", "H8BOLD", "H8BOLD", "H8BOLD", "H8BOLD"]}>{item.title}</Heading>
                   <Text
                     pt="10px"
                     variant={[
@@ -184,15 +184,15 @@ const Resumen = () => {
         <Accordion allowMultiple w="100%">
           <AccordionItem border="none">
             <h2>
-              <AccordionButton p="0px 0px">
+              <AccordionButton p="0px 0px 15px 0px" borderBottom="1px solid white">
                 <Box flex="1" textAlign="left">
                   <Heading
-                    variant={["H8BOLD", "H8BOLD", "H8BOLD", "H6BOLD", "H6BOLD"]}
+                    variant={["H9BOLD", "H8BOLD", "H8BOLD", "H6BOLD", "H6BOLD"]}
                   >
                     <Text as="span" color="brand.primary" mr="20px">
                       <span style={{ color: "#B53145" }}>X</span>
                     </Text>
-                    Carrito
+                    Mostrar résumen - {getTotalPrices(shoppingCart)}
                   </Heading>
                 </Box>
                 <AccordionIcon fontSize={["40px", "40px", "40px", "70px"]} />
