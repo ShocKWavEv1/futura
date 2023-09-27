@@ -33,6 +33,7 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
 }) => {
   const [swiper, setSwiper] = useState<any>(null);
   const [showToast, setShowToast] = useState<boolean>(false);
+  const [showToastSuccess, setShowToastSuccess] = useState<boolean>(false);
   const [isLoading, setLoading] = useState<boolean>(false);
   const [currentItem, setCurrentItem] = useState<any>();
 
@@ -69,6 +70,18 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showToast]);
 
+  useEffect(() => {
+    if (showToastSuccess) {
+      toast({
+        render: () => (
+          <Toast title={`Agregado - ${currentItem.title}`} status="success" />
+        ),
+      });
+      setShowToastSuccess(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showToastSuccess]);
+
   const configuredSanityClient = createClient({
     projectId: "7fexp3pt",
     dataset: "production",
@@ -102,6 +115,10 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
     setShowToast(true);
   };
 
+  const handleToastSuccess = () => {
+    setShowToastSuccess(true);
+  };
+
   const handleLoading = (val: boolean) => {
     setLoading(val);
   };
@@ -128,6 +145,7 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
       hasItems,
       handleShoppingCart,
       handleToast,
+      handleToastSuccess,
       handleHasItems,
       handleLoading,
       handleShoppingDrawer

@@ -181,6 +181,11 @@ const Resumen = () => {
         flexDirection="column"
         p="0px 20px 20px 20px"
       >
+        <Box pb="10px" >
+          <Text variant={["SMBOLD", "SMBOLD", "SMBOLD", "SMBOLD", "SMBOLD"]} >
+            Total: {getTotalPrices(shoppingCart)}
+          </Text>
+        </Box>
         <Accordion allowMultiple w="100%">
           <AccordionItem border="none">
             <h2>
@@ -192,7 +197,7 @@ const Resumen = () => {
                     <Text as="span" color="brand.primary" mr="20px">
                       <span style={{ color: "#B53145" }}>X</span>
                     </Text>
-                    Mostrar résumen - {getTotalPrices(shoppingCart)}
+                    Mostrar résumen
                   </Heading>
                 </Box>
                 <AccordionIcon fontSize={["40px", "40px", "40px", "70px"]} />

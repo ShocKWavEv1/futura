@@ -7,6 +7,7 @@ import {
   GridItem,
   Heading,
   Show,
+  Spinner,
   Text,
   useToast,
 } from "@chakra-ui/react";
@@ -16,21 +17,29 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShoppingDrawerProps } from "./model";
 import { useNextSanityImage as sanityImages } from "next-sanity-image";
 import { createClient } from "@sanity/client";
-import { patchRemove } from "@/constants/constants";
+import { patchRemove, patchRemoveAll } from "@/constants/constants";
 import Toast from "@/components/toast/toast";
 import PillStepper from "@/components/pillsStepper/pillsStepper";
 import { getPriceSingleItem, getTotalPrices } from "@/constants/shoppingCart";
 import { useRouter } from "next/router";
+import { Loader } from "@/components/loader/loader";
 
 const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
   isOpen,
   handleDrawer,
 }) => {
-  const { user_id, shoppingCart, totalCart, handleRemoveItemShoppingCart } =
-    useContext(ShoppingCartContext);
+  const {
+    user_id,
+    shoppingCart,
+    totalCart,
+    handleRemoveItemShoppingCart,
+    handleRemoveAllShoppingCart,
+    handleShoppingDrawer,
+  } = useContext(ShoppingCartContext);
 
   const [showToast, setShowToast] = useState<boolean>(false);
   const [currentItem, setCurrentItem] = useState<any>();
+  const [isLoading, setLoader] = useState<boolean>(false);
 
   const router = useRouter();
 
@@ -65,16 +74,32 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
     setShowToast(true);
   };
 
+  const handleLoader = () => {
+    setLoader(true);
+  };
+
   const handleRemove = (item: any) => {
     setShowToast(false);
+    setLoader(false);
     setCurrentItem(item);
-    handleDrawer();
     patchRemove(
       shoppingCart,
       user_id,
       item,
       handleRemoveItemShoppingCart,
-      handleToast
+      handleToast,
+      handleLoader,
+      handleShoppingDrawer
+    );
+  };
+
+  const handleRemoveAll = () => {
+    setLoader(false);
+    patchRemoveAll(
+      user_id,
+      handleShoppingDrawer,
+      handleRemoveAllShoppingCart,
+      handleLoader
     );
   };
 
@@ -99,7 +124,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
       <>
         <Box
           w={["100vw", "85vw", "80vw", "50vw"]}
-          h="70%"
+          h="68%"
           data-lenis-prevent
           overflowY="scroll"
         >
@@ -188,7 +213,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
         </Box>
         <Box
           w="100%"
-          h="20%"
+          h="22%"
           borderTop="1px solid white"
           p={["10px 25px", "10px 25px", "15px 25px", "15px 25px"]}
         >
@@ -207,7 +232,9 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
                 alignItems="center"
                 justifyContent="flex-start"
               >
-                <Text variant="MDMEDIUM">Subtotal</Text>
+                <Text variant="MDMEDIUM">
+                  Total: {getTotalPrices(shoppingCart)}
+                </Text>
               </Box>
               <Box
                 w="100%"
@@ -215,23 +242,35 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
                 alignItems="center"
                 justifyContent="flex-end"
               >
-                <Text variant="MDMEDIUM">{getTotalPrices(shoppingCart)}</Text>
+                <Text
+                  variant="MDBOLD"
+                  fontSize={["14px", "14px", "14px", "14px", "14px"]}
+                  p="2px 10px"
+                  borderRadius="25em"
+                  cursor="pointer"
+                  _hover={{ backgroundColor: "hsla(60,14%,95%,.1)" }}
+                  onClick={() => handleRemoveAll()}
+                >
+                  Remover todo
+                </Text>
               </Box>
             </Box>
-            <Button
-              mt={["8px", "8px", "15px", "15px"]}
-              variant="white"
-              size={["xs", "xs", "sm", "sm"]}
-              w="100%"
-              textTransform="uppercase"
-              className="link"
-              onClick={() => {
-                handleDrawer();
-                router.push("/resumen");
-              }}
-            >
-              🔥 ¡Lo quiero! 🔥
-            </Button>
+            <Box w="100%" mt="10px">
+              <Button
+                mt={["8px", "8px", "15px", "15px"]}
+                variant="white"
+                size={["xs", "xs", "sm", "sm"]}
+                w="100%"
+                textTransform="uppercase"
+                className="link"
+                onClick={() => {
+                  handleDrawer();
+                  router.push("/resumen");
+                }}
+              >
+                🔥 ¡Lo quiero! 🔥
+              </Button>
+            </Box>
           </Box>
         </Box>
       </>
@@ -263,6 +302,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
           display="flex"
           flexDirection="row"
           borderBottom="1px solid white"
+          position="relative"
         >
           <Show above="md">
             <Text variant={["XSREGULAR", "XSREGULAR", "XSMEDIUM", "XSBOLD"]}>
@@ -282,6 +322,27 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
           </Show>
         </Box>
         {shoppingCart.length === 0 ? renderEmptyCart() : renderCart()}
+        {isLoading && (
+          <Box
+            w="100%"
+            h="100%"
+            bg="rgba(0, 0, 0, .5)"
+            position="absolute"
+            top={0}
+            left={0}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Spinner
+              thickness="2px"
+              speed="0.65s"
+              emptyColor="primary.200"
+              color="primary.500"
+              size="xl"
+            />
+          </Box>
+        )}
       </motion.aside>
     </Backdrop>
   );

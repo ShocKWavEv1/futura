@@ -85,6 +85,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     );
   };
 
+  const handleRemoveAllShoppingCart = () => {
+    setShoppingCart([]);
+  };
+
   const handleHasItems = () => {
     setHasItems(true);
   };
@@ -95,7 +99,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   const handleShoppingDrawer = () => {
-    setShoppingDrawer(true);
+    setShoppingDrawer(!isShoppingDrawer);
   };
 
   return (
@@ -111,6 +115,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         urlVideo,
         handleShoppingCart,
         handleRemoveItemShoppingCart,
+        handleRemoveAllShoppingCart,
         handleHasItems,
         handleReelVideo,
         handleShoppingDrawer,
