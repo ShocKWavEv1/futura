@@ -24,9 +24,10 @@ const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
     >
       <Show above="lg">
         <motion.aside
-          initial={{ height: 0 }}
-          animate={{ height: isOpen ? "120px" : 0 }}
-          exit={{ height: 0 }}
+          initial={{ y: "0px" }}
+          animate={{ height: "120px" }}
+          exit={{ y: "-120px" }}
+          transition={{ duration: 0.5 }}
           style={{
             backgroundColor: "black",
             position: "absolute",

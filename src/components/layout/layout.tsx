@@ -11,6 +11,7 @@ import ShoppingDrawer from "./navbar/shoppingDrawer/shoppingDrawer";
 import Reel from "../reel/reel";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { ScrollProvider } from "@/hooks/useLenis";
+import { AnimatePresence } from "framer-motion";
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isDrawer, setDrawer] = useState<boolean>(false);
@@ -150,16 +151,22 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <Reel />
         </Box>
       </ScrollProvider>
-      <NavigationDrawer
-        isOpen={isDrawer}
-        handleDrawer={() => setDrawer(false)}
-      />
-      {isShoppingDrawer && (
-        <ShoppingDrawer
-          isOpen={isShoppingDrawer}
-          handleDrawer={() => setShoppingDrawer(false)}
-        />
-      )}
+      <AnimatePresence mode="wait">
+        {isDrawer && (
+          <NavigationDrawer
+            isOpen={isDrawer}
+            handleDrawer={() => setDrawer(false)}
+          />
+        )}
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isShoppingDrawer && (
+          <ShoppingDrawer
+            isOpen={isShoppingDrawer}
+            handleDrawer={() => setShoppingDrawer(false)}
+          />
+        )}
+      </AnimatePresence>
     </ShoppingCartContext.Provider>
   );
 };

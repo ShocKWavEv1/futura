@@ -287,6 +287,8 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
         onClick={(e) => e.stopPropagation()}
         initial={{ width: 0 }}
         animate={{ width: "auto" }}
+        exit={{ right: "-100%" }}
+        transition={{ duration: 0.5 }}
         style={{
           backgroundColor: "black",
           position: "absolute",
