@@ -12,10 +12,11 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { contains } from "../../constants/compact";
+import { basePadding } from "@/constants/basePadding";
 
 const CompactMovil: React.FC = () => {
   return (
-    <Box w="100%">
+    <Box w="100%" p={basePadding()}>
       <MotionAnimation delay={0.2}>
         <Heading
           textAlign="center"

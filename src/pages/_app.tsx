@@ -37,7 +37,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
   };
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 4000);
+    setTimeout(() => setIsLoading(false), 1800);
     // router event listeners for loadingBar
     router.events.on("routeChangeStart", handleRouteStart);
     router.events.on("routeChangeComplete", handleRouteComplete);

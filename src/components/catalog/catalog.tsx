@@ -6,12 +6,13 @@ import SwiperCatalog from "./components/swiper/swiper";
 import CatalogHeader from "./components/catalogHeader/catalogHeader";
 import { useState } from "react";
 import { filters } from "./constants";
+import { basePadding } from "@/constants/basePadding";
 
 const Catalog: React.FC<CatalogProps> = ({ products }) => {
   const [currentFilter, setFilter] = useState(filters[0]);
 
   return (
-    <Box id="catalogo" w="100%">
+    <Box id="catalogo" w="100%" p={basePadding()}>
       <CatalogHeader
         currentFilter={currentFilter}
         handleCurrentFilter={(filter: any) => setFilter(filter)}

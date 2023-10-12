@@ -24,8 +24,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [totalCart, setTotalCart] = useState<any>(0);
   const { colorMode } = useColorMode();
 
-  const { lockScroll, unlockScroll } = useScrollLock();
-
   useEffect(() => {
     if (localStorage.getItem("user") === null) {
       localStorage.setItem("user", Nid(12));
@@ -50,15 +48,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     });
     setTotalCart(total);
   }, [shoppingCart]);
-
-  useEffect(() => {
-    if (isShoppingDrawer || isDrawer) {
-      lockScroll();
-    } else {
-      unlockScroll();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isShoppingDrawer, isDrawer]);
 
   const getInitialShoppingCart = () => {
     getUser(user_id).then((data: any) => {
@@ -139,10 +128,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             w="100%"
             h="auto"
             p={[
-              "2.5rem 1.5rem 0rem 1.5rem",
-              "4rem 2rem 0rem 2rem",
-              "4rem 3rem 0rem 3rem",
-              "4rem 4rem 0rem 4rem",
+              "2.5rem 0rem 0rem 0rem",
+              "4rem 0rem 0rem 0rem",
+              "4rem 0rem 0rem 0rem",
+              "4rem 0rem 0rem 0rem",
             ]}
           >
             {children}

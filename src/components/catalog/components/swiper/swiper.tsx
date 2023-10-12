@@ -160,6 +160,7 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
         setSwiper(swiper);
       }}
       breakpoints={breakpoints}
+      freeMode
       onSlideChange={(slide: any) => handleCurrentItem(slide.activeIndex)}
     >
       {products.map((item: any) => {

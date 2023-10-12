@@ -36,9 +36,9 @@ export const patchRemove = (
     return response.json();
   };
   updateUser().then((data: any) => {
-    handleShoppingDrawer();
     handleRemoveItemShoppingCart(item);
     handleToast();
+    handleLoader();
     return data.message;
   });
   return newArr;
@@ -63,8 +63,8 @@ export const patchRemoveAll = (
     return response.json();
   };
   updateUser().then((data: any) => {
-    handleShoppingDrawer();
     handleRemoveAllShoppingCart();
+    handleLoader();
     return data.message;
   });
   return [];

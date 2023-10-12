@@ -8,18 +8,14 @@ const VideoLetters: React.FC<VideoLettersProps> = () => {
   const { handleReelVideo } = useContext(ShoppingCartContext);
 
   return (
-    <Box className="link">
+    <Box>
       <MotionAnimation delay={1}>
-        <Box
-          onClick={() => handleReelVideo(true, "https://vimeo.com/703833524")}
-          className="video-section link"
-        >
+        <Box className="video-section">
           <video
             src="https://videos.ctfassets.net/mq81gy7w2znw/6w4zLGGSLzp0D9jv0R9WLL/cd41a8f121a48b4d9a74f1a731d067db/header_vid_-_1080_v3.m4v#t=0.1"
             loop
             autoPlay
             muted
-            className="link"
           ></video>
           <div className="video-copy">
             <Heading fontSize="32.5vw">MOVIL</Heading>

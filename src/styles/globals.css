@@ -90,8 +90,8 @@ a, button, video, image, svg {
 }
 
 .svg-elem-1 {
-  -webkit-animation: animate-svg-stroke-1 2s ease-in-out 0.8s both;
-          animation: animate-svg-stroke-1 2s ease-in-out 0.8s both;
+  -webkit-animation: animate-svg-stroke-1 1.2s ease-in-out 0.5s both;
+          animation: animate-svg-stroke-1 1.2s ease-in-out 0.5s both;
 }
 
 @-webkit-keyframes animate-svg-stroke-2 {
@@ -119,8 +119,8 @@ a, button, video, image, svg {
 }
 
 .svg-elem-2 {
-  -webkit-animation: animate-svg-stroke-2 2s ease-in-out 2s both;
-          animation: animate-svg-stroke-2 2s ease-in-out 2s both;
+  -webkit-animation: animate-svg-stroke-2 1.2s ease-in-out .5s both;
+          animation: animate-svg-stroke-2 1.2s ease-in-out .5s both;
 }
 
 .video-section {

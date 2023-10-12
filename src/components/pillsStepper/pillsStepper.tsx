@@ -1,6 +1,6 @@
 import { patchCart } from "@/constants/constants";
 import ShoppingCartContext from "@/context/shoppingCartContext";
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import React, { useContext, useEffect, useState } from "react";
 import { PillsStepperProps } from "./model";
 import PillsAction from "./pillsAction/pillsAction";
@@ -14,6 +14,7 @@ const PillStepper: React.FC<PillsStepperProps> = ({
 }) => {
   const [quantity, setCurrentQuantity] = useState<any>(currentQuantity);
   const [isLoading, setLoader] = useState<boolean>(false);
+  const [hasError, setError] = useState<boolean>(false);
 
   const {
     user_id,
@@ -61,7 +62,12 @@ const PillStepper: React.FC<PillsStepperProps> = ({
       const quantityNumber: number = parseInt(value);
       setCurrentQuantity(quantityNumber);
     } else {
-      setCurrentQuantity(type === "add" ? quantity + 1 : quantity - 1);
+      if (quantity + 1 > maxQuantity || quantity === 0) {
+        setLoader(false);
+        setError(true);
+      } else {
+        setCurrentQuantity(type === "add" ? quantity + 1 : quantity - 1);
+      }
     }
   };
 
@@ -88,18 +94,30 @@ const PillStepper: React.FC<PillsStepperProps> = ({
           typeAction="minus"
           isLoading={isLoading}
           handleAction={() => handleItem("minus", "")}
+          handleError={(value: boolean) => setError(value)}
         />
         <PillsInput
           quantity={quantity}
           maxQuantity={maxQuantity}
           handleQuantity={(value: any) => handleItem("input", value)}
+          handleError={(value: boolean) => setError(value)}
         />
         <PillsAction
           typeAction="add"
           isLoading={isLoading}
           handleAction={() => handleItem("add", "")}
+          handleError={(value: boolean) => setError(value)}
         />
       </Box>
+      {hasError && (
+        <Box>
+          <Text variant="XSBOLD" color="red">
+            <span style={{ fontSize: 12, color: "#B53145" }}>
+              La cantidad máxima es de: {maxQuantity}
+            </span>
+          </Text>
+        </Box>
+      )}
     </Box>
   );
 };

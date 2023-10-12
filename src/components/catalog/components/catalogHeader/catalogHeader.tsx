@@ -13,7 +13,7 @@ const CatalogHeader: React.FC<CatalogHeaderProps> = ({
 
   return (
     <Box w="100%" p="5rem 0rem 2rem 0rem">
-      <MotionAnimation delay={0.2}>
+      <MotionAnimation delay={0}>
         <Heading
           as="span"
           variant={["H6BOLD", "H5BOLD", "H4BOLD", "H4BOLD"]}

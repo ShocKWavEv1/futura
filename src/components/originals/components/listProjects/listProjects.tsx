@@ -8,7 +8,7 @@ const ListProjects: React.FC<ListProjectsProps> = ({ listProjects }) => {
   const { handleReelVideo } = useContext(ShoppingCartContext);
   return (
     <Box w="100%">
-      <MotionAnimation delay={0.6}>
+      <MotionAnimation delay={0.2}>
         <Box
           w="100%"
           m="5px"

@@ -15,7 +15,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import { ShoppingDrawerProps } from "./model";
-import { useNextSanityImage as sanityImages } from "next-sanity-image";
 import { createClient } from "@sanity/client";
 import { patchRemove, patchRemoveAll } from "@/constants/constants";
 import Toast from "@/components/toast/toast";
@@ -23,6 +22,7 @@ import PillStepper from "@/components/pillsStepper/pillsStepper";
 import { getPriceSingleItem, getTotalPrices } from "@/constants/shoppingCart";
 import { useRouter } from "next/router";
 import { Loader } from "@/components/loader/loader";
+import ItemImage from "./itemImage/itemImage";
 
 const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
   isOpen,
@@ -45,12 +45,6 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
 
   const toast = useToast();
 
-  const configuredSanityClient = createClient({
-    projectId: "7fexp3pt",
-    dataset: "production",
-    useCdn: false,
-  });
-
   useEffect(() => {
     if (showToast) {
       toast({
@@ -65,17 +59,12 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showToast]);
 
-  const renderImage = (image: any) => {
-    const imageProps: any = sanityImages(configuredSanityClient, image);
-    return imageProps;
-  };
-
   const handleToast = () => {
     setShowToast(true);
   };
 
   const handleLoader = () => {
-    setLoader(true);
+    setLoader(!isLoading);
   };
 
   const handleRemove = (item: any) => {
@@ -138,21 +127,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
                 borderBottom="1px solid white"
               >
                 <GridItem colSpan={[3, 3, 3, 3]}>
-                  <Box w="100%" h="100%">
-                    <Image
-                      src={renderImage(item.mainImage)}
-                      alt={item.title}
-                      placeholder="blur"
-                      blurDataURL="https://my-company-images-prd.imgix.net/public/bg-desktop.png?auto=format&blur=200&px=24"
-                      style={{
-                        width: "100%",
-                        height: "auto",
-                        position: "relative",
-                        backgroundColor: "rgba(0,0,0,.6)",
-                      }}
-                      sizes="(max-width: 800px) 100vw, 800px"
-                    />
-                  </Box>
+                  <ItemImage item={item} />
                 </GridItem>
                 <GridItem colSpan={[7, 7, 7, 7]} h="100%">
                   <Box
@@ -324,27 +299,6 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
           </Show>
         </Box>
         {shoppingCart.length === 0 ? renderEmptyCart() : renderCart()}
-        {isLoading && (
-          <Box
-            w="100%"
-            h="100%"
-            bg="rgba(0, 0, 0, .5)"
-            position="absolute"
-            top={0}
-            left={0}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Spinner
-              thickness="2px"
-              speed="0.65s"
-              emptyColor="primary.200"
-              color="primary.500"
-              size="xl"
-            />
-          </Box>
-        )}
       </motion.aside>
     </Backdrop>
   );

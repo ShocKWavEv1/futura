@@ -17,10 +17,10 @@ import { useContext, useEffect, useState } from "react";
 import { useNextSanityImage as sanityImages } from "next-sanity-image";
 import { configuredSanityClient } from "@/constants/configureSanityClient";
 import { getPriceSingleItem, getTotalPrices } from "@/constants/shoppingCart";
-import MotionAnimation from "@/components/motionAnimation/motionAnimation";
 import { RangeDatepicker } from "chakra-dayzed-datepicker";
 import Confetti from "react-confetti";
 import { useWindowSize } from "@studio-freight/hamo";
+import { basePadding } from "@/constants/basePadding";
 
 const Resumen = () => {
   const { shoppingCart } = useContext(ShoppingCartContext);
@@ -169,6 +169,7 @@ const Resumen = () => {
       w="100%"
       h="auto"
       display="flex"
+      p={basePadding()}
       flexDirection={["column", "column", "column", "row", "row"]}
     >
       {showConfetti && <Confetti width={width} height={height} />}

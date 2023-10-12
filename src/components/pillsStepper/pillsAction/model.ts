@@ -1,5 +1,6 @@
 export interface PillsActionProps {
-    typeAction: string;
-    isLoading: boolean;
-    handleAction: () => void; 
+  typeAction: string;
+  isLoading: boolean;
+  handleAction: () => void;
+  handleError: (vale: boolean) => void;
 }
