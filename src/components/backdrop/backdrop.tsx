@@ -75,7 +75,7 @@ const Backdrop: React.FC<BackdropProps> = ({
         bottom: 0,
         left: 0,
         right: 0,
-        zIndex: 2,
+        zIndex: 6,
         display: isOpen ? "flex" : "none",
         alignItems: "center",
         justifyContent: "center",

@@ -12,6 +12,7 @@ import Reel from "../reel/reel";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { ScrollProvider } from "@/hooks/useLenis";
 import { AnimatePresence } from "framer-motion";
+import ReelsIg from "../reelsIg/reelsIg";
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isDrawer, setDrawer] = useState<boolean>(false);
@@ -146,6 +147,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           >
             {children}
           </Box>
+          <ReelsIg />
           <Footer />
           <Reel />
         </Box>

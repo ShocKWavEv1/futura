@@ -5,9 +5,11 @@ import ModalPromos from "./modalPromos/modalPromos";
 import MotionAnimation from "../motionAnimation/motionAnimation";
 import { basePadding } from "@/constants/basePadding";
 import Link from "next/link";
+import ModalVideo from "./modalVideo/modalVideo";
 
 const HomeHero: React.FC = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
+  const [isVideo, setVideo] = useState<boolean>(false);
   const router = useRouter();
   return (
     <Box id="compact" p={basePadding()}>
@@ -42,7 +44,7 @@ const HomeHero: React.FC = () => {
                 size="xs"
                 className="view"
                 variant="white"
-                onClick={() => router.push("/compact-movil")}
+                onClick={() => setVideo(true)}
               >
                 ¿Que contiene?
               </Button>
@@ -72,6 +74,7 @@ const HomeHero: React.FC = () => {
         </Stack>
       </Box>
       <ModalPromos isOpen={isOpen} handleModal={() => setOpen(false)} />
+      <ModalVideo isOpen={isVideo} handleModal={() => setVideo(false)} />
     </Box>
   );
 };

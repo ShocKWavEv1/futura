@@ -260,7 +260,7 @@ const Resumen = () => {
               <Box pt="10px" w={["100%", "100%", "380px", "380px", "380px"]}>
                 <Input
                   h="50px"
-                  placeholder="Escrbie tu nombre"
+                  placeholder="Escribe tu nombre"
                   onChange={(e) => setAlias(e.target.value)}
                 />
               </Box>
@@ -280,7 +280,7 @@ const Resumen = () => {
               <Box pt="10px" w={["100%", "100%", "380px", "380px", "380px"]}>
                 <Input
                   h="50px"
-                  placeholder="Escrbie tu nombre"
+                  placeholder="Nombre del proyecto"
                   onChange={(e) => setNameProject(e.target.value)}
                 />
               </Box>

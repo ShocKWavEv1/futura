@@ -16,7 +16,7 @@ const InGaffer: React.FC<InGafferHeaderProps> = () => {
       </Box>
       <MotionAnimation delay={0.4}>
         <Box
-          mt="40px"
+          mt="20px"
           w="100%"
           borderRadius="8px"
           cursor="pointer"

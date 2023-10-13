@@ -6,7 +6,6 @@ import HomeHero from "@/components/homeHero/homeHero";
 import InGaffer from "@/components/ingaffer/ingaffer";
 import Crew from "@/components/crew/crew";
 import Originals from "@/components/originals/originals";
-import ReelsIg from "@/components/reelsIg/reelsIg";
 import { MarqueeCopies } from "@/constants/marquee";
 export default function Home({
   products,
@@ -26,7 +25,6 @@ export default function Home({
       <InGaffer />
       <Crew crew={crew} />
       <Originals originals={originals} />
-      <ReelsIg />
     </Box>
   );
 }

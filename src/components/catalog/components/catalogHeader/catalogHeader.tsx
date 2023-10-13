@@ -43,8 +43,8 @@ const CatalogHeader: React.FC<CatalogHeaderProps> = ({
           pt={["5px", "10px", "10px", "10px"]}
         >
           {currentFilter.id === 1 || currentFilter.id === 4
-            ? "Disponibles en Fvtvra"
-            : "Disponible en Fvtvra"}
+            ? "Disponibles en renta"
+            : "Disponible en renta"}
         </Heading>
       </MotionAnimation>
       <Modal
