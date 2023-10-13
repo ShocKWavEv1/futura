@@ -1,9 +1,10 @@
-import { Box, Button, Heading } from "@chakra-ui/react";
+import { Box, Button, Heading, Stack } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import ModalPromos from "./modalPromos/modalPromos";
 import MotionAnimation from "../motionAnimation/motionAnimation";
 import { basePadding } from "@/constants/basePadding";
+import Link from "next/link";
 
 const HomeHero: React.FC = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
@@ -30,33 +31,45 @@ const HomeHero: React.FC = () => {
         alignItems="center"
         justifyContent="flex-start"
       >
-        <MotionAnimation delay={0.6}>
-          <Button
-            shadow="2xl"
-            size="xs"
-            className="view"
-            variant="white"
-            onClick={() => router.push("/compact-movil")}
-          >
-            ¿Que contiene?
-          </Button>
-        </MotionAnimation>
-        <MotionAnimation delay={0.65}>
-          <Button
-            ml="15px"
-            shadow="2xl"
-            size="xs"
-            variant="white"
-            onClick={() => setOpen(true)}
-          >
-            Promociones
-          </Button>
-        </MotionAnimation>
-        <MotionAnimation delay={0.7}>
-          <Button ml="15px" shadow="2xl" size="xs" colorScheme="primary">
-            Descargar lista de equipo
-          </Button>
-        </MotionAnimation>
+        <Stack
+          direction={["column", "column", "row", "row", "row"]}
+          spacing="15px"
+        >
+          <Box w="auto" display="flex" flexDirection="row">
+            <MotionAnimation delay={0.6}>
+              <Button
+                shadow="2xl"
+                size="xs"
+                className="view"
+                variant="white"
+                onClick={() => router.push("/compact-movil")}
+              >
+                ¿Que contiene?
+              </Button>
+            </MotionAnimation>
+            <MotionAnimation delay={0.65}>
+              <Button
+                ml="15px"
+                shadow="2xl"
+                size="xs"
+                variant="white"
+                onClick={() => setOpen(true)}
+              >
+                Promociones
+              </Button>
+            </MotionAnimation>
+          </Box>
+          <MotionAnimation delay={0.7}>
+            <Link
+              href="https://drive.google.com/file/d/1ulXsvc8qWVqcd35KQQdiTeU5pa0AcFJm/view"
+              target="_blank"
+            >
+              <Button shadow="2xl" size="xs" colorScheme="primary">
+                Lista de equipo
+              </Button>
+            </Link>
+          </MotionAnimation>
+        </Stack>
       </Box>
       <ModalPromos isOpen={isOpen} handleModal={() => setOpen(false)} />
     </Box>

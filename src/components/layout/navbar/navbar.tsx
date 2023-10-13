@@ -42,7 +42,9 @@ const Navbar: React.FC<NavbarProps> = ({
       flexDirection="row"
       pointerEvents="none"
       userSelect="none"
-      position="relative"
+      position="fixed"
+      zIndex={5}
+      bg="black"
     >
       <Box
         w={["35px", "40px", "40px", "40px"]}

@@ -16,6 +16,7 @@ export const useScrollLock = () => {
   }, []);
 
   const unlockScroll = useCallback(() => {
+    console.log("SHOULD UNLOCK", scrollPosition);
     // Restore the scroll position
     document.body.style.overflow = "";
     document.body.style.position = "";
