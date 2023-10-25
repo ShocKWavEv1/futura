@@ -1,12 +1,16 @@
 import React, { useCallback, useState } from "react";
 export const useScrollLock = () => {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const [scrollPositionSidebars, setScrollPositionSidebars] =
+    useState<number>(0);
 
   const lockScroll = useCallback(() => {
     // Save the current scroll position
     setScrollPosition(window.scrollY);
 
     const topScroll = `-${window.scrollY}px`;
+
+    console.log(topScroll);
 
     // Lock the scroll
     document.body.style.overflow = "hidden";

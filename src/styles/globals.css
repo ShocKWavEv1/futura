@@ -35,6 +35,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: white;
+  transform: translate(-50%, -50%);
 }
 
 .cursor-text {

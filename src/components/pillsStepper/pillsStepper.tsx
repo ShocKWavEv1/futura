@@ -10,9 +10,8 @@ import TooltipPills from "./tooltip/model";
 const PillStepper: React.FC<PillsStepperProps> = ({
   index,
   maxQuantity,
-  currentQuantity,
+  currentItemQuantity,
 }) => {
-  const [quantity, setCurrentQuantity] = useState<any>(currentQuantity);
   const [isLoading, setLoader] = useState<boolean>(false);
   const [hasError, setError] = useState<boolean>(false);
 
@@ -23,51 +22,67 @@ const PillStepper: React.FC<PillsStepperProps> = ({
     handleShoppingDrawer,
   } = useContext(ShoppingCartContext);
 
-  useEffect(() => {
-    if (quantity !== currentQuantity) {
-      let currentItem: any = shoppingCart[index];
+  const handleLoading = () => {
+    setLoader(!isLoading);
+  };
 
-      const currentQuantity = quantity;
+  const handlePatch = (arr: any) => {
+    patchCart(
+      arr,
+      user_id,
+      handlePatchShoppingCart,
+      handleLoading,
+      handleShoppingDrawer
+    );
+  };
 
+  const handleAddItem = (currentItem: any, currentQuantity: any, arr: any) => {
+    if (currentItemQuantity === maxQuantity) {
+      setError(true);
+    } else if (currentItemQuantity <= maxQuantity) {
+      currentQuantity = currentQuantity + 1;
       currentItem = { ...currentItem, currentQuantity };
-
-      const arr: any = [];
-
-      shoppingCart.map((item, i) => {
+      shoppingCart.map((item: any, i: any) => {
         if (i === index) {
           arr.push(currentItem);
         } else {
           arr.push(item);
         }
       });
-
-      patchCart(
-        arr,
-        user_id,
-        handlePatchShoppingCart,
-        handleLoading,
-        handleShoppingDrawer
-      );
+      handlePatch(arr);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [quantity]);
+  };
 
-  const handleLoading = (val: boolean) => {
-    setLoader(val);
+  const handleRemoveItem = (
+    currentItem: any,
+    currentQuantity: any,
+    arr: any
+  ) => {
+    setError(false);
+    if (currentItemQuantity <= 1) {
+      return null;
+    } else {
+      currentQuantity = currentQuantity - 1;
+      currentItem = { ...currentItem, currentQuantity };
+      shoppingCart.map((item: any, i: any) => {
+        if (i === index) {
+          arr.push(currentItem);
+        } else {
+          arr.push(item);
+        }
+      });
+      handlePatch(arr);
+    }
   };
 
   const handleItem = (type: string, value: any) => {
-    setLoader(true);
-    if (type === "input") {
-      const quantityNumber: number = parseInt(value);
-      setCurrentQuantity(quantityNumber);
-    } else {
-      if (quantity + 1 > maxQuantity || quantity === 0) {
-        setLoader(false);
-        setError(true);
-      } else {
-        setCurrentQuantity(type === "add" ? quantity + 1 : quantity - 1);
-      }
+    let currentItem: any = shoppingCart[index];
+    let currentQuantity = currentItemQuantity;
+    const arr: any = [];
+    if (type === "add") {
+      handleAddItem(currentItem, currentQuantity, arr);
+    } else if (type === "minus") {
+      handleRemoveItem(currentItem, currentQuantity, arr);
     }
   };
 
@@ -83,10 +98,12 @@ const PillStepper: React.FC<PillsStepperProps> = ({
       <Box
         w="auto"
         border="1px solid white"
-        m="10px"
+        mt="10px"
         p="5px"
         borderRadius="25em"
         display="flex"
+        alignItems="center"
+        justifyContent="center"
         flexDirection="row"
         ml="-1px"
       >
@@ -97,7 +114,7 @@ const PillStepper: React.FC<PillsStepperProps> = ({
           handleError={(value: boolean) => setError(value)}
         />
         <PillsInput
-          quantity={quantity}
+          quantity={currentItemQuantity}
           maxQuantity={maxQuantity}
           handleQuantity={(value: any) => handleItem("input", value)}
           handleError={(value: boolean) => setError(value)}

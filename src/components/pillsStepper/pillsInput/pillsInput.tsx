@@ -1,6 +1,6 @@
-import { Box, Input } from "@chakra-ui/react";
+import { Box, Input, Text } from "@chakra-ui/react";
 import { PillsInputProps } from "./model";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const PillsInput: React.FC<PillsInputProps> = ({
   quantity,
@@ -8,26 +8,27 @@ const PillsInput: React.FC<PillsInputProps> = ({
   handleQuantity,
   handleError,
 }) => {
-  const [itemQuantity, setItemQuantity] = useState(quantity);
+  const [currentItemQuantity, setCurrentQuantity] = useState(quantity);
+
+  useEffect(() => {
+    setCurrentQuantity(quantity);
+  }, [quantity]);
+
   const handleMaxQuantity = (val: any) => {
-    setItemQuantity(val);
     const valNumber = parseInt(val);
-    if (valNumber > maxQuantity || val === "") {
-      handleError(true);
-    } else {
-      handleError(false);
-      handleQuantity(val);
-    }
+
+    handleQuantity(valNumber);
   };
+
   return (
-    <Box w="40px" h="20px" p="0px 10px" mt="-3px">
-      <input
-        value={itemQuantity}
-        maxLength={maxQuantity}
-        onChange={(e) => handleMaxQuantity(e.target.value)}
-        type="number"
-        style={{ width: "100%", background: "transparent" }}
-      />
+    <Box
+      h="20px"
+      p="0px 5px"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Text variant="XXSREGULAR">{currentItemQuantity}</Text>
     </Box>
   );
 };

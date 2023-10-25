@@ -23,11 +23,14 @@ const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
       type="drawer"
     >
       <Show above="lg">
-        <motion.aside
-          initial={{ y: "0px" }}
-          animate={{ height: "120px" }}
-          exit={{ y: "-120px" }}
-          transition={{ duration: 0.5 }}
+        <motion.div
+          initial={{ height: 0 }}
+          whileInView={{ height: "120px" }}
+          exit={{ height: 0 }}
+          transition={{
+            ease: "easeInOut",
+            duration: 0.5,
+          }}
           style={{
             backgroundColor: "black",
             position: "absolute",
@@ -118,7 +121,7 @@ const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
               </Box>
             </GridItem>
           </Grid>
-        </motion.aside>
+        </motion.div>
       </Show>
       <Show below="lg">
         <DrawerResponsive isOpen={isOpen} handleDrawer={() => handleDrawer()} />

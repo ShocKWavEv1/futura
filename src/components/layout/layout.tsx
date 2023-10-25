@@ -38,14 +38,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (isDrawer || isShoppingDrawer) {
-      lockScroll();
-    } else {
-      unlockScroll();
-    }
-  }, [isDrawer, isShoppingDrawer]);
-
-  useEffect(() => {
     if (user_id) {
       getInitialShoppingCart();
     }
@@ -153,20 +145,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </Box>
       </ScrollProvider>
       <AnimatePresence mode="wait">
-        {isDrawer && (
-          <NavigationDrawer
-            isOpen={isDrawer}
-            handleDrawer={() => setDrawer(false)}
-          />
-        )}
+        <NavigationDrawer
+          isOpen={isDrawer}
+          handleDrawer={() => setDrawer(false)}
+        />
       </AnimatePresence>
       <AnimatePresence mode="wait">
-        {isShoppingDrawer && (
-          <ShoppingDrawer
-            isOpen={isShoppingDrawer}
-            handleDrawer={() => setShoppingDrawer(false)}
-          />
-        )}
+        <ShoppingDrawer
+          isOpen={isShoppingDrawer}
+          handleDrawer={() => setShoppingDrawer(false)}
+        />
       </AnimatePresence>
     </ShoppingCartContext.Provider>
   );

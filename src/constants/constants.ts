@@ -91,7 +91,6 @@ export const patchCart = (
   updateUser().then((data: any) => {
     handlePatchShoppingCart(shoppingCart);
     handleLoading(false);
-    handleShoppingDrawer();
     return data.message;
   });
   return shoppingCart;

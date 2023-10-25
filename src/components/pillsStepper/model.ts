@@ -1,5 +1,5 @@
 export interface PillsStepperProps {
-    index: any;
-    currentQuantity: any,
-    maxQuantity: any,
+  index: any;
+  currentItemQuantity: any;
+  maxQuantity: any;
 }

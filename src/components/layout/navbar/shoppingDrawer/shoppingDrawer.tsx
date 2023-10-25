@@ -7,21 +7,17 @@ import {
   GridItem,
   Heading,
   Show,
-  Spinner,
   Text,
   useToast,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import { ShoppingDrawerProps } from "./model";
-import { createClient } from "@sanity/client";
 import { patchRemove, patchRemoveAll } from "@/constants/constants";
 import Toast from "@/components/toast/toast";
 import PillStepper from "@/components/pillsStepper/pillsStepper";
 import { getPriceSingleItem, getTotalPrices } from "@/constants/shoppingCart";
 import { useRouter } from "next/router";
-import { Loader } from "@/components/loader/loader";
 import ItemImage from "./itemImage/itemImage";
 
 const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
@@ -31,7 +27,6 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
   const {
     user_id,
     shoppingCart,
-    totalCart,
     handleRemoveItemShoppingCart,
     handleRemoveAllShoppingCart,
     handleShoppingDrawer,
@@ -143,7 +138,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
                     </Heading>
                     <PillStepper
                       index={index}
-                      currentQuantity={item.currentQuantity}
+                      currentItemQuantity={item.currentQuantity}
                       maxQuantity={item.maxQuantity}
                     />
                   </Box>
@@ -258,12 +253,15 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
       handleBackdrop={() => handleDrawer()}
       type="drawer"
     >
-      <motion.aside
+      <motion.div
         onClick={(e) => e.stopPropagation()}
         initial={{ width: 0 }}
-        animate={{ width: "auto" }}
-        exit={{ right: "-100%" }}
-        transition={{ duration: 0.5 }}
+        whileInView={{ width: "auto" }}
+        exit={{ width: 0 }}
+        transition={{
+          ease: "easeInOut",
+          duration: 0.5,
+        }}
         style={{
           backgroundColor: "black",
           position: "absolute",
@@ -299,7 +297,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
           </Show>
         </Box>
         {shoppingCart.length === 0 ? renderEmptyCart() : renderCart()}
-      </motion.aside>
+      </motion.div>
     </Backdrop>
   );
 };

@@ -9,13 +9,11 @@ const PillsAction: React.FC<PillsActionProps> = ({
 }) => {
   return (
     <Box
-      w="20px"
-      h="20px"
       display="flex"
       alignItems="center"
       justifyContent="center"
       borderRadius="25em"
-      cursor={isLoading ? "wait" : "pointer"}
+      padding="5px 7px"
       _hover={{ backgroundColor: "hsla(60,14%,95%,.15)" }}
       onClick={() => handleAction()}
     >
