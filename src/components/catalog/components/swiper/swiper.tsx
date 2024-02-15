@@ -96,15 +96,15 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
   const handleCurrentItem = (activeIndex: number) => {
     if (activeIndex === 0) {
       handleFilter(filters[0]);
-    } else if (activeIndex >= 1 && activeIndex < 3) {
+    } else if (activeIndex >= 1 && activeIndex < 7) {
       handleFilter(filters[1]);
-    } else if (activeIndex >= 3 && activeIndex < 5) {
+    } else if (activeIndex >= 3 && activeIndex < 22) {
       handleFilter(filters[2]);
-    } else if (activeIndex >= 5 && activeIndex < 10) {
+    } else if (activeIndex >= 5 && activeIndex < 26) {
       handleFilter(filters[3]);
-    } else if (activeIndex >= 10 && activeIndex < 16) {
+    } else if (activeIndex >= 10 && activeIndex < 35) {
       handleFilter(filters[4]);
-    } else if (activeIndex >= 16 && activeIndex < 20) {
+    } else if (activeIndex >= 16 && activeIndex < 37) {
       handleFilter(filters[5]);
     } else {
       handleFilter(filters[6]);

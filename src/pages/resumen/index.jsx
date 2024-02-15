@@ -86,19 +86,18 @@ const Resumen = () => {
 
   const renderItems = () => {
     return (
-      <>
-        <Stack direction="column" spacing="40px" w="100%" h="100%">
-          {shoppingCart.map((item) => {
+      <Box w="100%" display="flex" flexDirection="column">
+        <Box w="100%">
+          {shoppingCart.map((item, idx) => {
             return (
               <Box
-                w="100%"
-                h="100%"
-                display="flex"
-                flexDirection="row"
                 key={item.title}
+                display="grid"
+                gridTemplateColumns="140px 1fr"
+                mt={idx !== 0 && "40px"}
               >
                 <Box
-                  w="120px"
+                  w="100%"
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
@@ -108,7 +107,7 @@ const Resumen = () => {
                   <Box
                     w="30px"
                     h="20px"
-                    p="1px 5px"
+                    p="5px"
                     bg="primary.500"
                     borderRadius="25em"
                     position="absolute"
@@ -138,7 +137,11 @@ const Resumen = () => {
                   />
                 </Box>
                 <Box w="auto" pl="20px">
-                  <Heading variant={["H9BOLD", "H8BOLD", "H8BOLD", "H8BOLD", "H8BOLD"]}>{item.title}</Heading>
+                  <Heading
+                    variant={["H9BOLD", "H8BOLD", "H8BOLD", "H8BOLD", "H8BOLD"]}
+                  >
+                    {item.title}
+                  </Heading>
                   <Text
                     pt="10px"
                     variant={[
@@ -154,13 +157,13 @@ const Resumen = () => {
               </Box>
             );
           })}
-        </Stack>
+        </Box>
         <Box w="100%" pt="40px">
           <Heading variant="H7BOLD">
             Total: {getTotalPrices(shoppingCart)}
           </Heading>
         </Box>
-      </>
+      </Box>
     );
   };
 
@@ -182,18 +185,21 @@ const Resumen = () => {
         flexDirection="column"
         p="0px 20px 20px 20px"
       >
-        <Box pb="10px" >
-          <Text variant={["SMBOLD", "SMBOLD", "SMBOLD", "SMBOLD", "SMBOLD"]} >
+        <Box pb="10px">
+          <Text variant={["SMBOLD", "SMBOLD", "SMBOLD", "SMBOLD", "SMBOLD"]}>
             Total: {getTotalPrices(shoppingCart)}
           </Text>
         </Box>
         <Accordion allowMultiple w="100%">
           <AccordionItem border="none">
             <h2>
-              <AccordionButton p="0px 0px 15px 0px" borderBottom="1px solid white">
+              <AccordionButton
+                p="0px 0px 15px 0px"
+                borderBottom="1px solid white"
+              >
                 <Box flex="1" textAlign="left">
                   <Heading
-                    variant={["H9BOLD", "H8BOLD", "H8BOLD", "H6BOLD", "H6BOLD"]}
+                    variant={["H9BOLD", "H9BOLD", "H9BOLD", "H6BOLD", "H6BOLD"]}
                   >
                     <Text as="span" color="brand.primary" mr="20px">
                       <span style={{ color: "#B53145" }}>X</span>

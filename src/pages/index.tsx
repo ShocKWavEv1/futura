@@ -16,6 +16,7 @@ export default function Home({
   crew: any;
   originals: any;
 }) {
+  console.log("products", products);
   return (
     <Box>
       <HomeHero />
@@ -31,7 +32,7 @@ export default function Home({
 
 export const getServerSideProps = async (pageContext: any) => {
   const query = encodeURIComponent(
-    `*[ _type == "products" ] | order(_createdAt asc)`
+    `*[ _type == "products" ] | order(publishedAt asc)`
   );
 
   const queryCrew = encodeURIComponent(

@@ -1,32 +1,32 @@
 export const breakpoints = {
-    320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-    },
-    480: {
-        slidesPerView: 1,
-        spaceBetween: 20
-    },
-    640: {
-        slidesPerView: 2,
-        spaceBetween: 20
-    },
-    1024: {
-        slidesPerView: 2,
-        spaceBetween: 20
-    },
-    1189: {
-        slidesPerView: 3,
-        spaceBetween: 20
-    }
-}
+  320: {
+    slidesPerView: 1,
+    spaceBetween: 20,
+  },
+  480: {
+    slidesPerView: 1,
+    spaceBetween: 20,
+  },
+  640: {
+    slidesPerView: 2,
+    spaceBetween: 20,
+  },
+  1024: {
+    slidesPerView: 2,
+    spaceBetween: 20,
+  },
+  1189: {
+    slidesPerView: 3,
+    spaceBetween: 20,
+  },
+};
 
 export const filters = [
-    {title: "Catalogo", id: 0, swiperId: 0, delay: 0.03},
-    {title: "Camaras", id: 1, swiperId: 1, delay: 0.09},
-    {title: "Optica", id: 2, swiperId: 3, delay: 0.15},
-    {title: "Iluminacion", id: 3, swiperId: 5, delay: 0.21},
-    {title: "Accesorios de camara", id: 4, swiperId: 10, delay: 0.27},
-    {title: "Sonido", id: 5, swiperId: 16, delay: 0.33},
-    {title: "Tramoya", id: 6, swiperId: 20, delay: 0.39},
+  { title: "Catalogo", id: 0, swiperId: 0, delay: 0.03 },
+  { title: "Camaras", id: 1, swiperId: 1, delay: 0.09 },
+  { title: "Optica", id: 2, swiperId: 7, delay: 0.15 },
+  { title: "Iluminacion", id: 3, swiperId: 22, delay: 0.21 },
+  { title: "Accesorios de camara", id: 4, swiperId: 26, delay: 0.27 },
+  { title: "Sonido", id: 5, swiperId: 35, delay: 0.33 },
+  { title: "Tramoya", id: 6, swiperId: 37, delay: 0.39 },
 ];
