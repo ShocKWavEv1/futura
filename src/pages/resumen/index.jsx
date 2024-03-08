@@ -5,8 +5,10 @@ import {
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
+  Badge,
   Box,
   Button,
+  Checkbox,
   Heading,
   Input,
   Stack,
@@ -29,6 +31,8 @@ const Resumen = () => {
   const [showConfetti, setConfetti] = useState(false);
   const [alias, setAlias] = useState();
   const [nameProject, setNameProject] = useState();
+  const [isChecked, setChecked] = useState(true);
+  const [customUbication, setUbication] = useState();
 
   const { width, height } = useWindowSize();
 
@@ -72,13 +76,19 @@ const Resumen = () => {
     const secondDate = selectedDates[1];
 
     stringData = `🔥Hola *FVTVRA*🔥, mi nombre es : *${
-      alias === undefined ? "DESCONOCIDO" : alias
+      alias === undefined ? "DESCONOCIDO" : alias.toLocaleUpperCase()
     }* estoy interesado en rentar equipo con ustedes ${renderDynamicDates(
       firstDate,
       secondDate
     )} para el proyecto: *${
-      nameProject === undefined ? "DESCONOCIDO" : nameProject
-    }* esta es la lista de items que requiero: %0a%0a ${stringData} %0a *TOTAL DE COTIZACION: ${getTotalPrices(
+      nameProject === undefined
+        ? "DESCONOCIDO"
+        : nameProject.toLocaleUpperCase()
+    }* que grabaremos en *${
+      isChecked
+        ? `CDMX - ${customUbication ? customUbication : "DESCONOCIDO"}`
+        : customUbication
+    }* esta es la lista de equipo que requiero: %0a%0a ${stringData} %0a *TOTAL DE COTIZACION: ${getTotalPrices(
       shoppingCart
     )}mxn*`;
     return stringData;
@@ -233,7 +243,7 @@ const Resumen = () => {
           className="derpazoid"
           variant={["H6BOLD", "H6BOLD", "H5BOLD", "H5BOLD", "H5BOLD"]}
         >
-          Déjanos tus datos
+          SOLO UNOS DATOS MAS…
         </Heading>
         <Text
           pt="10px"
@@ -246,8 +256,8 @@ const Resumen = () => {
             "MDREGULAR",
           ]}
         >
-          Los siguientes campos no son requeridos, pero nos ayudaria mucho para
-          poder darte un mejor estimado
+          Estos campos no son obligatorios pero nos ayudarían para agilizar tu
+          cotización
         </Text>
         <Box w="100%" p="40px 0px">
           <Stack direction="column" spacing="40px">
@@ -289,6 +299,53 @@ const Resumen = () => {
                   placeholder="Nombre del proyecto"
                   onChange={(e) => setNameProject(e.target.value)}
                 />
+              </Box>
+            </Box>
+            <Box w="auto" display="flex" flexDirection="column">
+              <Text
+                variant={[
+                  "MDREGULAR",
+                  "MDREGULAR",
+                  "MDREGULAR",
+                  "MDREGULAR",
+                  "MDREGULAR",
+                ]}
+              >
+                Ubicación:
+              </Text>
+              <Box pt="10px" w={["100%", "100%", "380px", "380px", "380px"]}>
+                <Text variant="XSREGULAR">Mi grabación es en CDMX</Text>
+                <Box>
+                  <Checkbox
+                    mt="5px"
+                    colorScheme="primary"
+                    isChecked={isChecked}
+                    onChange={(e) => setChecked(e.target.checked)}
+                  >
+                    <Text variant="XSREGULAR">Sí</Text>
+                  </Checkbox>
+                  {!isChecked && (
+                    <Box
+                      w={["100%", "100%", "380px", "380px", "380px"]}
+                      bg="primary.500"
+                      p="8px 8px"
+                      mt="10px"
+                      borderRadius="6px"
+                    >
+                      <Text variant="XXSREGULAR">
+                        Ten en cuenta que tu cotización puede incluir costos
+                        adicionales
+                      </Text>
+                    </Box>
+                  )}
+                </Box>
+                <Box mt="20px">
+                  <Input
+                    h="50px"
+                    placeholder="Cuéntanos donde vas a grabar?"
+                    onChange={(e) => setUbication(e.target.value)}
+                  />
+                </Box>
               </Box>
             </Box>
             <Box w="auto" display="flex" flexDirection="column">
