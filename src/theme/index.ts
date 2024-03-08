@@ -1,25 +1,25 @@
-import { extendTheme } from '@chakra-ui/react'
-import { getColors } from './getColors'
-import colorsToken from './color.json'
-import { ButtonTheme as Button } from './futura/buttonTheme'
-import { HeadingTheme as Heading } from './futura/headingTheme'
-import { TextTheme as Text } from './futura/textTheme'
+import { extendTheme } from "@chakra-ui/react";
+import { getColors } from "./getColors";
+import colorsToken from "./color.json";
+import { ButtonTheme as Button } from "./futura/buttonTheme";
+import { HeadingTheme as Heading } from "./futura/headingTheme";
+import { TextTheme as Text } from "./futura/textTheme";
 
 // 2. Add your color mode config
 const config = {
-  initialColorMode: 'dark',
+  initialColorMode: "dark",
   useSystemColorMode: false,
-}
+};
 
-const colors = getColors({ colors: colorsToken.color })
+const colors = getColors({ colors: colorsToken.color });
 
 const breakpoints = {
-  sm: '576px',
-  md: '768px',
-  lg: '1084px',
-  xl: '1200px',
-  '2xl': '1536px',
-}
+  sm: "576px",
+  md: "768px",
+  lg: "1084px",
+  xl: "1200px",
+  "2xl": "1536px",
+};
 
 const theme = extendTheme({
   breakpoints,
@@ -29,7 +29,7 @@ const theme = extendTheme({
     Button,
     Heading,
     Text,
-  }
-})
+  },
+});
 
-export default theme
+export default theme;

@@ -131,10 +131,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             w="100%"
             h="auto"
             p={[
-              "140px 0rem 0rem 0rem",
-              "180px 0rem 0rem 0rem",
-              "180px 0rem 0rem 0rem",
-              "180px 0rem 0rem 0rem",
+              "120px 0rem 0rem 0rem",
+              "160px 0rem 0rem 0rem",
+              "160px 0rem 0rem 0rem",
+              "160px 0rem 0rem 0rem",
             ]}
           >
             {children}
