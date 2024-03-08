@@ -98,17 +98,18 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
       handleFilter(filters[0]);
     } else if (activeIndex >= 1 && activeIndex < 7) {
       handleFilter(filters[1]);
-    } else if (activeIndex >= 3 && activeIndex < 22) {
+    } else if (activeIndex >= 7 && activeIndex < 21) {
       handleFilter(filters[2]);
-    } else if (activeIndex >= 5 && activeIndex < 26) {
+    } /*else if (activeIndex >= 21 && activeIndex < 25) {
       handleFilter(filters[3]);
-    } else if (activeIndex >= 10 && activeIndex < 35) {
+    } else if (activeIndex >= 25 && activeIndex < 32) {
       handleFilter(filters[4]);
-    } else if (activeIndex >= 16 && activeIndex < 37) {
+    } else if (activeIndex === 32) {
       handleFilter(filters[5]);
-    } else {
-      handleFilter(filters[6]);
     }
+    else {
+    handleFilter(filters[6]);
+    }*/
   };
 
   const handleToast = () => {
