@@ -100,7 +100,7 @@ const SwiperCatalog: React.FC<SwiperProps> = ({
       handleFilter(filters[1]);
     } else if (activeIndex >= 7 && activeIndex < 21) {
       handleFilter(filters[2]);
-    } else if (activeIndex >= 21 && activeIndex < 25) {
+    } else {
       handleFilter(filters[3]);
     } /*else if (activeIndex >= 25 && activeIndex < 32) {
       handleFilter(filters[4]);
