@@ -266,7 +266,7 @@ const ShoppingDrawer: React.FC<ShoppingDrawerProps> = ({
           backgroundColor: "black",
           position: "absolute",
           right: 0,
-          height: "100vh",
+          height: "100svh",
           borderLeft: "1px solid white",
         }}
       >

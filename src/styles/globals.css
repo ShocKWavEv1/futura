@@ -11,12 +11,28 @@ body {
   cursor: none;
 }
 
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
 
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 *::selection {
-  background-color: #B53145;
+  background-color: #b53145;
   color: #000000;
 }
 
@@ -45,17 +61,21 @@ body {
   display: none;
 }
 
-a, button, video, image, svg {
+a,
+button,
+video,
+image,
+svg {
   color: inherit;
   text-decoration: none;
   cursor: none !important;
 }
 
 #Capa_1 {
-  fill:none;
-  stroke:#b53145;
-  stroke-miterlimit:10;
-  stroke-width:4.5px;
+  fill: none;
+  stroke: #b53145;
+  stroke-miterlimit: 10;
+  stroke-width: 4.5px;
   width: 150px;
   height: 150px;
 }
@@ -66,7 +86,7 @@ a, button, video, image, svg {
  * W. https://svgartista.net
  **************************************************/
 
- @-webkit-keyframes animate-svg-stroke-1 {
+@-webkit-keyframes animate-svg-stroke-1 {
   0% {
     stroke-dashoffset: 1006.32568359375px;
     stroke-dasharray: 1006.32568359375px;
@@ -92,7 +112,7 @@ a, button, video, image, svg {
 
 .svg-elem-1 {
   -webkit-animation: animate-svg-stroke-1 1.2s ease-in-out 0.5s both;
-          animation: animate-svg-stroke-1 1.2s ease-in-out 0.5s both;
+  animation: animate-svg-stroke-1 1.2s ease-in-out 0.5s both;
 }
 
 @-webkit-keyframes animate-svg-stroke-2 {
@@ -120,13 +140,13 @@ a, button, video, image, svg {
 }
 
 .svg-elem-2 {
-  -webkit-animation: animate-svg-stroke-2 1.2s ease-in-out .5s both;
-          animation: animate-svg-stroke-2 1.2s ease-in-out .5s both;
+  -webkit-animation: animate-svg-stroke-2 1.2s ease-in-out 0.5s both;
+  animation: animate-svg-stroke-2 1.2s ease-in-out 0.5s both;
 }
 
 .video-section {
   overflow: hidden;
-  position:relative;
+  position: relative;
   margin-top: 40px;
   width: 100%;
   height: 400px;
@@ -154,12 +174,16 @@ a, button, video, image, svg {
   letter-spacing: -20px;
 }
 
-.radialContainer{
+.radialContainer {
   z-index: 1;
   position: absolute;
   height: 100%;
-  width:100%;
-  background: linear-gradient(to bottom, rgb(123, 8, 255, 0.9), rgb(123, 8, 255,0.87));
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgb(123, 8, 255, 0.9),
+    rgb(123, 8, 255, 0.87)
+  );
 }
 
 .scroll-section-outer {
@@ -185,7 +209,7 @@ a, button, video, image, svg {
   display: block;
 }
 
-.reel-bg{
+.reel-bg {
   background: url(../../public/assets/reel.jpg), linear-gradient(#000, #f05);
   background-size: cover;
 }
@@ -204,8 +228,8 @@ a, button, video, image, svg {
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: .3s ease;
-  background-color: rgba(0,0,0,.5);
+  transition: 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -215,10 +239,8 @@ a, button, video, image, svg {
   opacity: 1;
 }
 
-
 @media screen and (max-width: 768px) {
   .video-section {
     display: none;
   }
 }
-
