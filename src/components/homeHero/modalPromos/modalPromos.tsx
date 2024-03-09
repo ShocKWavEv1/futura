@@ -35,7 +35,7 @@ const ModalPromos: React.FC<ModalPromosProps> = ({ isOpen, handleModal }) => {
         <Box
           w={["80vw", "80vw", "70vw", "60vw"]}
           h="auto"
-          maxHeight="60svh"
+          maxHeight={["80svh", "60svh", "60svh", "60svh", "60svh"]}
           overflow="scroll"
           onWheel={(event: any) => event.stopPropagation()}
         >
