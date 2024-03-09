@@ -39,7 +39,12 @@ const ModalPromos: React.FC<ModalPromosProps> = ({ isOpen, handleModal }) => {
           overflow="scroll"
           onWheel={(event: any) => event.stopPropagation()}
         >
-          <Box w="100%" display="flex" flexDirection="row" gap="10px">
+          <Box
+            w="100%"
+            display="grid"
+            gridTemplateColumns={["1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr"]}
+            gap="20px"
+          >
             {promosCategories.map((item: any, idx: number) => {
               return (
                 <Box
@@ -49,12 +54,20 @@ const ModalPromos: React.FC<ModalPromosProps> = ({ isOpen, handleModal }) => {
                   p="10px"
                   onClick={() => setCurrentPromo(idx)}
                 >
-                  <Heading variant="H8BOLD">{item.title}</Heading>
+                  <Heading variant={["H9BOLD", "H8BOLD", "H8BOLD", "H8BOLD"]}>
+                    {item.title}
+                  </Heading>
                 </Box>
               );
             })}
           </Box>
-          <SimpleGrid mt="20px" columns={[2, 2, 2, 2]} spacing="20px">
+          <Box
+            mt="20px"
+            w="100%"
+            display="grid"
+            gridTemplateColumns={["1fr", "1fr", "1fr 1fr", "1fr 1fr"]}
+            gap="20px"
+          >
             {promos.map((item: any, i: number) => {
               return (
                 <Box
@@ -77,7 +90,7 @@ const ModalPromos: React.FC<ModalPromosProps> = ({ isOpen, handleModal }) => {
                 </Box>
               );
             })}
-          </SimpleGrid>
+          </Box>
         </Box>
       </motion.div>
     </Backdrop>
