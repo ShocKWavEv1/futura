@@ -32,7 +32,7 @@ const Resumen = () => {
   const [alias, setAlias] = useState();
   const [nameProject, setNameProject] = useState();
   const [isChecked, setChecked] = useState(true);
-  const [customUbication, setUbication] = useState();
+  const [customUbication, setUbication] = useState("DESCONOCIDO");
 
   const { width, height } = useWindowSize();
 

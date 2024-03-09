@@ -62,14 +62,11 @@ const HomeHero: React.FC = () => {
             </MotionAnimation>
           </Box>
           <MotionAnimation delay={0.7}>
-            <Link
-              href="https://drive.google.com/file/d/1ulXsvc8qWVqcd35KQQdiTeU5pa0AcFJm/view"
-              target="_blank"
-            >
+            <a href="/static/pdf/COMPACTMOVIL_FVTVRA.pdf" download>
               <Button shadow="2xl" size="xs" colorScheme="primary">
-                Lista de equipo
+                Descargar lista de equipo
               </Button>
-            </Link>
+            </a>
           </MotionAnimation>
         </Stack>
       </Box>

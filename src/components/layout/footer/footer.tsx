@@ -1,4 +1,5 @@
 import { Box, Text } from "@chakra-ui/react";
+import Link from "next/link";
 import { SlSocialInstagram, SlSocialYoutube } from "react-icons/sl";
 import { TfiVimeo } from "react-icons/tfi";
 
@@ -43,14 +44,11 @@ const Footer: React.FC = () => {
       </Box>
       <Text variant={["XSMEDIUM", "XSMEDIUM", "SMMEDIUM", "SMMEDIUM"]}>
         © MMXXII, FVTVRA |{" "}
-        <Text
-          as="span"
-          textDecoration="underline"
-          cursor="pointer"
-          className="link"
-        >
-          housecolor
-        </Text>
+        <Link href="https://www.slmrn.studio" target="_blank">
+          <Text as="span" cursor="pointer" className="link">
+            SLMRN
+          </Text>
+        </Link>
       </Text>
     </Box>
   );

@@ -93,8 +93,8 @@ const Navbar: React.FC<NavbarProps> = ({
         >
           <Box w="100%" display="flex" alignItems="center">
             <Box
-              w={["40px", "40px", "40px", "40px"]}
-              h={["40px", "40px", "40px", "40px"]}
+              w={["35px", "40px", "40px", "40px"]}
+              h={["35px", "40px", "40px", "40px"]}
               bg="white"
               border="1px solid white"
               p="0rem 0.45rem"
@@ -132,8 +132,8 @@ const Navbar: React.FC<NavbarProps> = ({
             justifyContent="flex-end"
           >
             <Box
-              w={["40px", "40px", "40px", "40px"]}
-              h={["40px", "40px", "40px", "40px"]}
+              w={["35px", "40px", "40px", "40px"]}
+              h={["35px", "40px", "40px", "40px"]}
               bg={showCart ? "white" : "transparent"}
               border={showCart ? "1px solid white" : "none"}
               p="0rem 0.45rem"

@@ -28,7 +28,7 @@ const Backdrop: React.FC<BackdropProps> = ({
         w="100%"
         h="auto"
         zIndex={4}
-        top={["3.2%", "6%", "6%", "6%"]}
+        top={["2.8%", "2.5%", "2.5%", "2.5%"]}
         p={["0rem 1.5rem", "0rem 1.5rem", "0rem 2rem", "0rem 3rem"]}
         position="absolute"
         display="flex"
@@ -69,7 +69,7 @@ const Backdrop: React.FC<BackdropProps> = ({
       style={{
         width: "100%",
         height: "100vh",
-        backgroundColor: "rgba(0,0,0,.6)",
+        backgroundColor: "rgba(0,0,0,.75)",
         position: "fixed",
         top: 0,
         bottom: 0,
