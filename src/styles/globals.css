@@ -239,6 +239,37 @@ svg {
   opacity: 1;
 }
 
+.modalContainer {
+  height: 400px;
+  width: 350px;
+  position: absolute;
+  background-color: white;
+  overflow: hidden;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalSlider {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.modal {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal img {
+  height: auto;
+}
+
 @media screen and (max-width: 768px) {
   .video-section {
     display: none;

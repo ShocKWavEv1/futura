@@ -16,7 +16,6 @@ export default function Home({
   crew: any;
   originals: any;
 }) {
-  console.log("products", products);
   return (
     <Box>
       <HomeHero />

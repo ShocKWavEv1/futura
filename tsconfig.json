@@ -18,6 +18,18 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/hooks/useLenis.tsx", "src/pages/resumen/index.tsx", "src/pages/resumen/index.tsx", "src/pages/resumen/index.tsx", "src/components/catalog/components/swiper/swiper.jsx", "src/components/blurredImage/blurredImage.jsx", "src/components/crew/components/crewScroll/crewScroll.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/hooks/useLenis.tsx",
+    "src/pages/resumen/index.tsx",
+    "src/pages/resumen/index.tsx",
+    "src/pages/resumen/index.tsx",
+    "src/components/catalog/components/swiper/swiper.jsx",
+    "src/components/blurredImage/blurredImage.jsx",
+    "src/components/crew/components/crewScroll/crewScroll.jsx",
+    "src/components/crew/components/crewGallery/crewMemberModal/crewMemberModal.jsx"
+  ],
   "exclude": ["node_modules"]
 }

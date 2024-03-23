@@ -10,8 +10,6 @@ export const useScrollLock = () => {
 
     const topScroll = `-${window.scrollY}px`;
 
-    console.log(topScroll);
-
     // Lock the scroll
     document.body.style.overflow = "hidden";
     document.body.style.position = "fixed";
@@ -20,7 +18,6 @@ export const useScrollLock = () => {
   }, []);
 
   const unlockScroll = useCallback(() => {
-    console.log("SHOULD UNLOCK", scrollPosition);
     // Restore the scroll position
     document.body.style.overflow = "";
     document.body.style.position = "";
